@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login/reusable_widgets/reusable_widgets.dart';
 import 'package:login/screens/sample.dart';
 import 'package:login/screens/signup.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignScreen extends StatefulWidget {
   const SignScreen({Key? key}) : super(key: key);
@@ -13,8 +14,9 @@ class SignScreen extends StatefulWidget {
 class _SignScreenState extends State<SignScreen> {
   TextEditingController nameText=TextEditingController();
   TextEditingController passwordText =TextEditingController();
-  @override
+  FirebaseAuth _auth = FirebaseAuth.instance;
 
+  @override
   Widget build(BuildContext context)
   {
     return Scaffold(
@@ -52,8 +54,8 @@ class _SignScreenState extends State<SignScreen> {
                       margin: const EdgeInsets.only(left: 30, right: 30),
                       child: TextFormField(controller: nameText,
                         decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.person_outline_outlined,size: 25),
-                            hintText: "Username",
+                            prefixIcon: Icon(Icons.mail,size: 25),
+                            hintText: "Email",
                             hintStyle: TextStyle(fontSize: 18,color: Colors.grey),
                             border: InputBorder.none,
                         ),
@@ -88,8 +90,8 @@ class _SignScreenState extends State<SignScreen> {
                   SizedBox(width: 120,
                     child: ElevatedButton(
                         style:
-                            ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                        onPressed: () {},
+                        ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                        onPressed: () {_auth.signInWithEmailAndPassword(email: nameText.text, password: passwordText.text );},
                         child: const Text(
                           "LOGIN",
                           style: TextStyle(color: Colors.blue),
