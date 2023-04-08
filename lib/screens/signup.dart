@@ -14,7 +14,7 @@ class signup extends StatefulWidget {
 }
 
 class _signupState extends State<signup> {
-  TextEditingController _usernameTextController = TextEditingController();
+  TextEditingController _usernameTextController=TextEditingController();
   TextEditingController _ageTextController = TextEditingController();
   TextEditingController _phoneTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
@@ -91,7 +91,7 @@ class _signupState extends State<signup> {
                               email: _emailTextController.text,
                               password: _passwordTextController.text);
                           User? user=FirebaseAuth.instance.currentUser;
-                          if (user?.email == _emailTextController.text) {
+                          if (user!=null) {
                             Navigator.pushReplacement(
                                 context, MaterialPageRoute(builder: (context) =>
                                 sample()));
