@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:login/reusable_widgets/reusable_widgets.dart';
 import 'package:login/screens/sample.dart';
 import 'package:login/screens/signup.dart';
@@ -91,7 +92,15 @@ class _SignScreenState extends State<SignScreen> {
                     child: ElevatedButton(
                         style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.white,),
-                        onPressed: () {_auth.signInWithEmailAndPassword(email: nameText.text, password: passwordText.text );},
+                        onPressed: () {Signin(email: nameText.text,password: passwordText.text);
+                        User? user=FirebaseAuth.instance.currentUser;
+                        if (user?.email == nameText.text) {
+                          Navigator.pushReplacement(
+                              context, MaterialPageRoute(builder: (context) =>
+                              sample()));
+                        }
+
+                        },
                         child: const Text(
                           "LOG IN",
                           style: TextStyle(color: Colors.blue,),
@@ -108,8 +117,12 @@ class _SignScreenState extends State<SignScreen> {
   }
 }
 
-Future Signin(){
+Future Signin({String email = "", String password = ""})async
+{
   try {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password)
+    await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+  }
+  on FirebaseAuthException catch (e){String error = e.message.toString();
+  Fluttertoast.showToast(msg: error);
   }
 }

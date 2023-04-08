@@ -90,12 +90,7 @@ class _signupState extends State<signup> {
                               username: _usernameTextController.text,
                               email: _emailTextController.text,
                               password: _passwordTextController.text);
-                          User? user=FirebaseAuth.instance.currentUser;
-                          if (user?.email == _emailTextController.text) {
-                            Navigator.pushReplacement(
-                                context, MaterialPageRoute(builder: (context) =>
-                                sample()));
-                          }
+
                         },
                         child: const Text(
                           "SIGN UP",
