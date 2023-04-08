@@ -90,11 +90,11 @@ class _SignScreenState extends State<SignScreen> {
                   SizedBox(width: 120,
                     child: ElevatedButton(
                         style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                        ElevatedButton.styleFrom(backgroundColor: Colors.white,),
                         onPressed: () {_auth.signInWithEmailAndPassword(email: nameText.text, password: passwordText.text );},
                         child: const Text(
-                          "LOGIN",
-                          style: TextStyle(color: Colors.blue),
+                          "LOG IN",
+                          style: TextStyle(color: Colors.blue,),
                         )),
                   ),
                   const SizedBox(height: 70),
@@ -105,5 +105,11 @@ class _SignScreenState extends State<SignScreen> {
             )),
       ),
     );
+  }
+}
+
+Future Signin(){
+  try {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password)
   }
 }
