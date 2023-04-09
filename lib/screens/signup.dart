@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:login/reusable_widgets/reusable_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:login/screens/sample.dart';
+import 'package:login/screens/homepage.dart';
 import 'package:login/screens/signin_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -87,7 +87,7 @@ class _signupState extends State<signup> {
                           User? user = FirebaseAuth.instance.currentUser;
                       if (user != null) {
                         Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => sample()));
+                            MaterialPageRoute(builder: (context) => const HomePage()));
                       }
                     },
                     child: const Text(
@@ -99,7 +99,7 @@ class _signupState extends State<signup> {
               TextButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SignScreen()));
+                        MaterialPageRoute(builder: (context) => const SignScreen()));
                   },
                   child: const Text(
                     "Already have an account? Log In",

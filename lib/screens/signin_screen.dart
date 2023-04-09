@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:login/reusable_widgets/reusable_widgets.dart';
-import 'package:login/screens/sample.dart';
+import 'package:login/screens/homepage.dart';
+import 'package:login/screens/forgetpassword.dart';
 import 'package:login/screens/signup.dart';
+// import 'package:login/reusable_widgets/reusable_widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignScreen extends StatefulWidget {
@@ -82,7 +84,7 @@ class _SignScreenState extends State<SignScreen> {
                   Align(
                     alignment: Alignment.center,
                     child: TextButton(
-                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>sample()));},
+                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>const Forgetpassword()));},
                       child: const Text("Forgot Password?",
                           style: TextStyle(color: Colors.white)),
                     ),
@@ -97,7 +99,7 @@ class _SignScreenState extends State<SignScreen> {
                         if (user?.email == nameText.text) {
                           Navigator.pushReplacement(
                               context, MaterialPageRoute(builder: (context) =>
-                              sample()));
+                              const HomePage()));
                         }
 
                         },
@@ -107,7 +109,7 @@ class _SignScreenState extends State<SignScreen> {
                         )),
                   ),
                   const SizedBox(height: 70),
-                  TextButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>signup()));}, child: const Text("Don't have an account? Sign Up",style: TextStyle(color: Colors.white),)),
+                  TextButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>const signup()));}, child: const Text("Don't have an account? Sign Up",style: TextStyle(color: Colors.white),)),
 
                 ],
               ),

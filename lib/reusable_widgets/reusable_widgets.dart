@@ -8,14 +8,14 @@ TextField reusableTextField(String text, IconData icon, bool isPasswordType,Text
     enableSuggestions: !isPasswordType,
     autocorrect: !isPasswordType,
     cursorColor: Colors.white,
-    style: TextStyle(color: Colors.grey),
+    style: const TextStyle(color: Colors.grey),
     decoration: InputDecoration(
       prefixIcon: Icon(
         icon,
         color: Colors.grey,
       ),
       labelText: text,
-      labelStyle: TextStyle(color: Colors.grey),
+      labelStyle: const TextStyle(color: Colors.grey),
       filled: true,
       floatingLabelBehavior: FloatingLabelBehavior.never,
       fillColor: Colors.white,
