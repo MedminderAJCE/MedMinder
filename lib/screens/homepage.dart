@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:login/screens/account.dart';
@@ -8,6 +9,7 @@ import 'package:login/screens/home.dart';
 import 'package:login/screens/secondpage.dart';
 import 'package:login/screens/logout.dart';
 import 'package:login/screens/addmedicine.dart';
+import 'package:login/screens/signin_screen.dart';
 
 
 
@@ -31,7 +33,7 @@ class _HomePageState extends State<HomePage>{
         iconTheme: IconThemeData(color: Colors.black),
         title: Text("Hello User" ,style: TextStyle(color: Colors.black)),
         centerTitle: true,
-        backgroundColor: Color(0xFF6096B4),
+        backgroundColor: Color(0xFF00E5FF),
       //    leading :IconButton(
       //   onPressed: () {},
       //   icon: IconButton(
@@ -88,9 +90,9 @@ class _HomePageState extends State<HomePage>{
                 style: TextStyle(fontSize:15),
               ),
               onTap: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => Logout())
-                );
+                User? user = FirebaseAuth.instance.currentUser;
+                FirebaseAuth.instance.signOut();
+                if(user == null){Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignScreen()));}
               },
             ),
 
@@ -107,7 +109,7 @@ class _HomePageState extends State<HomePage>{
       // ),
        
     bottomNavigationBar:GNav(
-      backgroundColor: Color(0xFF6096B4),
+      backgroundColor: Color(0xFF00E5FF),
       gap: 8,
       tabs: [
         GButton(icon: Icons.home,

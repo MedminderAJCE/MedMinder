@@ -124,7 +124,8 @@ Future Signup(
         .createUserWithEmailAndPassword(email: email, password: password);
   } on FirebaseAuthException catch (e) {
     String error = e.message.toString();
-    Fluttertoast.showToast(msg: error);
+    if(error == "Given String is empty or null"){Fluttertoast.showToast(msg: "Please enter the details");}
+    else Fluttertoast.showToast(msg: error);
   }
   await FirebaseFirestore.instance
       .collection("Users")
