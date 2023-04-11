@@ -84,10 +84,12 @@ class _signupState extends State<signup> {
                           username: _usernameTextController.text,
                           email: _emailTextController.text,
                           password: _passwordTextController.text);
-                          User? user = FirebaseAuth.instance.currentUser;
+                      User? user = FirebaseAuth.instance.currentUser;
                       if (user != null) {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => const HomePage()));
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomePage()));
                       }
                     },
                     child: const Text(
@@ -98,8 +100,10 @@ class _signupState extends State<signup> {
               const SizedBox(height: 10),
               TextButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const SignScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignScreen()));
                   },
                   child: const Text(
                     "Already have an account? Log In",
@@ -124,8 +128,10 @@ Future Signup(
         .createUserWithEmailAndPassword(email: email, password: password);
   } on FirebaseAuthException catch (e) {
     String error = e.message.toString();
-    if(error == "Given String is empty or null"){Fluttertoast.showToast(msg: "Please enter the details");}
-    else Fluttertoast.showToast(msg: error);
+    if (error == "Given String is empty or null") {
+      Fluttertoast.showToast(msg: "Please enter the details");
+    } else
+      Fluttertoast.showToast(msg: error);
   }
   await FirebaseFirestore.instance
       .collection("Users")

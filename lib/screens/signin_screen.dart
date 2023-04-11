@@ -111,14 +111,12 @@ class _SignScreenState extends State<SignScreen> {
                               email: nameText.text,
                               password: passwordText.text);
                           User? user = _auth.currentUser;
-                          if (user!=null) {
-                            print("test passed");
+                          if (user?.email == nameText.text) {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const HomePage()));
                           }
-                          print("test2 passed");
                         },
                         child: const Text(
                           "LOG IN",
