@@ -26,12 +26,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
-        title: Text("Hello User", style: TextStyle(color: Colors.black)),
+        // title: Text("Hello User", style: TextStyle(color: Colors.black)),
         centerTitle: true,
         backgroundColor: Color(0xFF00E5FF),
       ),
       drawer: Drawer(
-        backgroundColor: Color(0xFF6096B4),
+        backgroundColor: Color(0xFF00E5FF),
         child: Container(
           // color: Colors.black,
           child: ListView(
