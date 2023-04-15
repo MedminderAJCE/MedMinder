@@ -16,6 +16,7 @@ class SignScreen extends StatefulWidget {
 class _SignScreenState extends State<SignScreen> {
   TextEditingController nameText = TextEditingController();
   TextEditingController passwordText = TextEditingController();
+  TextEditingController PasswordResetEmail = TextEditingController();
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
@@ -90,10 +91,39 @@ class _SignScreenState extends State<SignScreen> {
                     alignment: Alignment.center,
                     child: TextButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Forgetpassword()));
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: const Text("Reset the Password",style: TextStyle(color: Colors.grey),),
+                                actions: [
+                                  TextFormField(
+                                    controller: PasswordResetEmail,
+                                    decoration: const InputDecoration(
+                                        hintText: "Enter the Email",hintStyle: TextStyle(color: Colors.grey)),
+
+                                  ),
+                                  IconButton(onPressed: () async{
+                                    try {
+                                      await FirebaseAuth.instance.sendPasswordResetEmail(
+                                          email: PasswordResetEmail.text);
+                                          Navigator.of(context).pop();
+                                    }catch(e){
+                                      print("test passed");
+                                      String Error = e.toString();
+                                      if (Error == "[firebase_auth/unknown] Given String is empty or null") {
+                                        Fluttertoast.showToast(msg: "Please Enter the Email");
+                                      }
+                                      else
+                                      Fluttertoast.showToast(msg: Error);
+                                    }
+
+
+                                  }, icon: Icon(Icons.check),color: Colors.grey,)
+                                ],
+                              );
+                            });
+
                       },
                       child: const Text("Forgot Password?",
                           style: TextStyle(color: Colors.white)),
@@ -152,7 +182,7 @@ Future Signin({String email = "", String password = ""}) async {
   } on FirebaseAuthException catch (e) {
     String error = e.message.toString();
     if (error == "Given String is empty or null") {
-      Fluttertoast.showToast(msg: "Please enter the details");
+      Fluttertoast.showToast(msg: "Please Enter the details");
     } else
       Fluttertoast.showToast(msg: error);
   }
