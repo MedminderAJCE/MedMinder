@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
         tabs: [
           GButton(
             icon: Icons.home,
-            text: 'Home',
+          
             onPressed: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => Home()));
@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage> {
               0xf52d,
               fontFamily: 'MaterialIcons',
             ),
-            text: 'Add Medicine',
+            
             onPressed: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => AddMedicine()));
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
           ),
           GButton(
             icon: IconData(0xe043, fontFamily: 'MaterialIcons'),
-            text: 'Account',
+        
             onPressed: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => Account()));
