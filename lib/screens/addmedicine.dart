@@ -5,10 +5,91 @@ class AddMedicine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("layer to include the addition of medicine info"),
-      ),
+    return   Scaffold(
+      body:Center(
+        child:SizedBox(
+          width:300,
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const TextField(
+              decoration: InputDecoration(
+                hintText: "Enter Medicine Name",
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color:  Color(0xFF00E5FF),
+                  )
+                ),
+               enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color:  Color(0xFF00E5FF),
+                  )
+                ),
+              ),
+            ),
+            Container(height: 30,),
+            const TextField(
+              keyboardType: TextInputType.phone,
+              decoration: InputDecoration(
+                hintText: "Enter Medicine Dosage",
+                 focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color:  Color(0xFF00E5FF),
+                  )
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color:  Color(0xFF00E5FF),
+                  )
+                ),
+              ),
+            ),
+            Container(height: 30,),
+             const TextField(
+              decoration: InputDecoration(
+                hintText: "Enter Medicine Course",
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color:Color(0xFF00E5FF),
+                  )
+                ),
+               enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color:Color(0xFF00E5FF),
+                  )
+                ),
+              ),
+            ),
+            Container(height: 30,),
+            ElevatedButton(onPressed: (){
+            }, 
+            child: const Text('Quantity Left',
+              style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize:20,
+                          color: Colors.white)
+            ),
+            style: ElevatedButton.styleFrom(
+              minimumSize: const Size(320.0,50.0),
+               backgroundColor: const Color(0xFF00E5FF),
+            ),
+            ),
+             Container(height: 10,),
+            ElevatedButton(onPressed: (){
+            }, child: const Text('Set Alarm',
+            style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize:20,
+                          color: Colors.white)
+                          ),
+                          style: ElevatedButton.styleFrom(
+              minimumSize: const Size(320.0,50.0),
+              backgroundColor: const Color(0xFF00E5FF),
+            ),
+
+                          ),
+          ],
+        ))),
     );
   }
 }
