@@ -8,53 +8,79 @@ class AddMedicine extends StatelessWidget {
     return   Scaffold(
       body:Center(
         child:SizedBox(
+      
           width:300,
         child:Column(
+          
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const TextField(
+            TextField(
               decoration: InputDecoration(
                 hintText: "Enter Medicine Name",
+                disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(21),
+                  borderSide: const BorderSide(
+                    color:  Color(0xFF00E5FF),
+                  )
+                ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
+                  borderRadius: BorderRadius.circular(21),
+                  borderSide: const BorderSide(
                     color:  Color(0xFF00E5FF),
                   )
                 ),
                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
+                  borderRadius: BorderRadius.circular(21),
+                  borderSide: const BorderSide(
                     color:  Color(0xFF00E5FF),
                   )
                 ),
               ),
             ),
             Container(height: 30,),
-            const TextField(
+             TextField(
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
                 hintText: "Enter Medicine Dosage",
-                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
+                disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(21),
+                  borderSide: const BorderSide(
                     color:  Color(0xFF00E5FF),
                   )
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
+                 focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(21),
+                  borderSide: const BorderSide(
+                    color:  Color(0xFF00E5FF),
+                  )
+                ),
+                enabledBorder:  OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(21),
+                  borderSide: const BorderSide(
                     color:  Color(0xFF00E5FF),
                   )
                 ),
               ),
             ),
             Container(height: 30,),
-             const TextField(
+             TextField(
               decoration: InputDecoration(
                 hintText: "Enter Medicine Course",
+                disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(21),
+                  borderSide: const BorderSide(
+                    color:  Color(0xFF00E5FF),
+                  )
+                ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
+                  borderRadius: BorderRadius.circular(21),
+                  borderSide: const BorderSide(
                     color:Color(0xFF00E5FF),
                   )
                 ),
                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
+                borderRadius: BorderRadius.circular(21),
+                  borderSide: const BorderSide(
                     color:Color(0xFF00E5FF),
                   )
                 ),
