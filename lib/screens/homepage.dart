@@ -2,15 +2,12 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:login/screens/account.dart';
+import 'package:login/screens/addmedicine.dart';
 import 'package:login/screens/firstpage.dart';
 import 'package:login/screens/home.dart';
 import 'package:login/screens/secondpage.dart';
-
-import 'package:login/screens/addmedicine.dart';
 import 'package:login/screens/signin_screen.dart';
-
 // import 'package:google_nav_bar/google_nav_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,11 +18,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int myindex=0;
+  List<Widget>widgetList=const[
+    Home(),
+    AddMedicine(),
+    Account(),
+    
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       body: Container(child: widgetList[myindex],),
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        
+        // iconTheme: IconThemeData(color: Colors.black),
         // title: Text("Hello User", style: TextStyle(color: Colors.black)),
         centerTitle: true,
         backgroundColor: Color(0xFF00E5FF),
@@ -40,14 +46,16 @@ class _HomePageState extends State<HomePage> {
                 child: Center(
                     child: Text(
                   'More',
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(fontSize: 25 ,color: Colors.white,),
+                  
+
                 )),
               ),
               ListTile(
-                leading: Icon(Icons.attribution), //build circle
+                leading: Icon(Icons.attribution, color: Colors.white,),  //build circle
                 title: Text(
                   'Caretaker',
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 15 ,color: Colors.white,),
                 ),
                 onTap: () {
                   Navigator.of(context).push(
@@ -55,10 +63,10 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               ListTile(
-                leading: Icon(IconData(0xe813, fontFamily: 'MaterialIcons')),
+                leading: Icon(IconData(0xe813, fontFamily: 'MaterialIcons'), color: Colors.white,),
                 title: Text(
                   'Settings',
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 15 ,color: Colors.white,),
                 ),
                 onTap: () {
                   Navigator.of(context).push(
@@ -66,10 +74,10 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               ListTile(
-                leading: Icon(IconData(0xe3b3, fontFamily: 'MaterialIcons')),
+                leading: Icon(IconData(0xe3b3, fontFamily: 'MaterialIcons'), color: Colors.white,),
                 title: Text(
                   'Logout',
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 15, color: Colors.white,),
                 ),
                 onTap: () {
                   User? user = FirebaseAuth.instance.currentUser;
@@ -88,45 +96,88 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      // body: Container(
-      //   child: Center(
-      //     child: Text("Home Page"), //just for a middle filling
-      //   ),
-      // ),
-
-      bottomNavigationBar: GNav(
-        backgroundColor: Color(0xFF00E5FF),
-        gap: 8,
-        tabs: [
-          GButton(
-            icon: Icons.home,
+    
+     bottomNavigationBar: BottomNavigationBar(
+      onTap: (index) {
+        setState(() {
+            myindex=index;
+        });
+      
+      },
+      currentIndex: myindex,
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: Color(0xFF00E5FF),
+      iconSize: 37,
+      selectedFontSize: 15,
+      unselectedFontSize: 15,
+      selectedItemColor: Colors.white,
+      unselectedItemColor: Colors.white,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      items:const [
+        BottomNavigationBarItem(
+          icon:Icon(Icons.home,
           
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Home()));
-            },
+          color: Colors.white,),
+          label: 'home',
+          
+         ),
+         
+
+        BottomNavigationBarItem(
+          label: 'add medicine',
+          
+          icon:Icon(Icons.add_circle_outlined ,
+          color: Colors.white,),
           ),
-          GButton(
-            icon: IconData(
-              0xf52d,
-              fontFamily: 'MaterialIcons',
-            ),
-            
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => AddMedicine()));
-            },
-          ),
-          GButton(
-            icon: IconData(0xe043, fontFamily: 'MaterialIcons'),
+
+          BottomNavigationBarItem(
+            label: 'account',
+          icon:Icon(Icons.account_circle_rounded,
+          color: Colors.white,),
+         ),
+
+      ]),
+    
+
+    //  Need to change the gnav no need 
+      // bottomNavigationBar: GNav(
+      //   color: Colors.white,
+      //   backgroundColor: Color(0xFF00E5FF),
         
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Account()));
-            },
-          ),
-        ],
-      ),
+      //   gap: 8,
+      //   iconSize: 30,
+      //   tabs: [
+      //     GButton(
+      //       icon: Icons.home,
+      //       onPressed: () {
+      //         Navigator.of(context)
+      //             .push(MaterialPageRoute(builder: (context) => Home()));
+      //       },
+      //     ),
+      //     GButton(
+           
+      //       icon: IconData(
+      //         0xf52d,
+      //         fontFamily: 'MaterialIcons',
+    
+      //       ),
+            
+      //       onPressed: () {
+      //         Navigator.of(context)
+      //             .push(MaterialPageRoute(builder: (context) => AddMedicine()));
+      //       },
+      //     ),
+      //     GButton(
+      //       icon: IconData(0xe043, fontFamily: 'MaterialIcons'),
+        
+      //       onPressed: () {
+      //         Navigator.of(context)
+      //             .push(MaterialPageRoute(builder: (context) => Account()));
+      //       },
+      //     ),
+      //   ],
+      //),
     );
   }
 }
