@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:intl/intl.dart';
+=======
+import 'package:login/screens/setalarm.dart';
+>>>>>>> bc3d28dda121463633dd0dba0ba81e8ccb2114f0
 
 class AddMedicine extends StatefulWidget {
   const AddMedicine({super.key});
@@ -13,6 +17,7 @@ class _AddMedicineState extends State<AddMedicine> {
       DateTimeRange(start: DateTime(2022, 11, 5), end: DateTime(2022, 12, 24));
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     final start = dateRange.start;
     final end = dateRange.end;
     final difference = dateRange.duration;
@@ -148,4 +153,119 @@ class _AddMedicineState extends State<AddMedicine> {
       dateRange = newDateRange;
     });
   }
+=======
+    return Scaffold(
+      body: Center(
+          child: SizedBox(
+              width: 300,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: "Enter Medicine Name",
+                      disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(21),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF00E5FF),
+                          )),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(21),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF00E5FF),
+                          )),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(21),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF00E5FF),
+                          )),
+                    ),
+                  ),
+                  Container(
+                    height: 30,
+                  ),
+                  TextField(
+                    keyboardType: TextInputType.phone,
+                    decoration: InputDecoration(
+                      hintText: "Enter Medicine Dosage",
+                      disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(21),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF00E5FF),
+                          )),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(21),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF00E5FF),
+                          )),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(21),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF00E5FF),
+                          )),
+                    ),
+                  ),
+                  Container(
+                    height: 30,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: "Enter Medicine Course",
+                      disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(21),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF00E5FF),
+                          )),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(21),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF00E5FF),
+                          )),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(21),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF00E5FF),
+                          )),
+                    ),
+                  ),
+                  Container(
+                    height: 30,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('Quantity Left',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white)),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(320.0, 50.0),
+                      backgroundColor: const Color(0xFF00E5FF),
+                    ),
+                  ),
+                  Container(
+                    height: 10,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const setalarm()));
+                    },
+                    child: const Text('Set Alarm',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white)),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(320.0, 50.0),
+                      backgroundColor: const Color(0xFF00E5FF),
+                    ),
+                  ),
+                ],
+              ))),
+    );
+  }
+>>>>>>> bc3d28dda121463633dd0dba0ba81e8ccb2114f0
 }
