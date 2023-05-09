@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:login/main.dart';
+//import 'package:login/screens/alarm.dart';
+import 'package:login/screens/setalarm.dart';
 // import 'package:intl/intl.dart';
-// import 'package:login/screens/setalarm.dart';
+import 'package:login/screens/setalarm.dart';
 
 class AddMedicine extends StatefulWidget {
   const AddMedicine({super.key});
@@ -119,7 +122,12 @@ class _AddMedicineState extends State<AddMedicine> {
               height: 10,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => setalarm()));
+              },
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(320.0, 50.0),
                 backgroundColor: const Color(0xFF00E5FF),
