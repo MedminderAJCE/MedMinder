@@ -35,7 +35,7 @@ class _timepickerState extends State<timepicker> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(_timeOfDay.format(context).toString(),
-              style: TextStyle(fontSize: 30,color: Colors.white),
+              style: TextStyle(fontSize: 50,color: Colors.white),
             ),
             MaterialButton(
               onPressed: _showTimePicker,

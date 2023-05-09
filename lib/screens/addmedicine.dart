@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:login/screens/setalarm.dart';
+//import 'package:login/screens/setalarm.dart';
 // import 'package:intl/intl.dart';
-import 'package:login/screens/setalarm.dart';
+//import 'package:login/screens/setalarm.dart';
 import 'package:login/screens/timepicker.dart';
 
 class AddMedicine extends StatefulWidget {
@@ -214,7 +214,7 @@ class _AddMedicineState extends State<AddMedicine> {
                   alignment: Alignment.centerLeft,
                 hint: const SizedBox(
                   
-                  child: Center(child: Text("Refill remainder",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),))),
+                  child: Center(child: Text("Refill Reminder",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),))),
                 dropdownColor: const Color(0xFF00E5FF),
                 icon: const Icon(Icons.arrow_drop_down),
                 iconSize: 36,
