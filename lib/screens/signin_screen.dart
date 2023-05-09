@@ -60,7 +60,7 @@ class _SignScreenState extends State<SignScreen> {
                       child: TextFormField(
                         controller: nameText,
                         decoration: const InputDecoration(
-                          prefixIcon: Icon(Icons.mail, size: 25),
+                          prefixIcon: Icon(Icons.mail, size: 25,color: Colors.grey),
                           hintText: "Email",
                           hintStyle:
                               TextStyle(fontSize: 18, color: Colors.grey),

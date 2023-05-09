@@ -20,6 +20,16 @@ class _AddMedicineState extends State<AddMedicine> {
     final end = dateRange.end;
     final difference = dateRange.duration;
 
+    // bool isopen=false;
+    String? valuechoose;
+    List listItem=[
+      'Item 1',
+      'item 2',
+      'item 3',
+       'item 4',
+       'item 5'
+    ];
+
     return Scaffold(
       body: Center(
           child: SizedBox(
@@ -105,18 +115,69 @@ class _AddMedicineState extends State<AddMedicine> {
               style: const TextStyle(fontSize: 20),
             ),
             Container(height: 18),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(320.0, 50.0),
-                backgroundColor: const Color(0xFF00E5FF),
-              ),
-              child: const Text('Quantity Left',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.white)),
-            ),
+            // ElevatedButton(
+            //   onPressed: () {},
+            //   style: ElevatedButton.styleFrom(
+            //     minimumSize: const Size(320.0, 50.0),
+            //     backgroundColor: const Color(0xFF00E5FF),
+            //   ),
+            //   child: const Text('Quantity Left',
+            //       style: TextStyle(
+            //           fontWeight: FontWeight.bold,
+            //           fontSize: 20,
+            //           color: Colors.white)),
+            // ),
+          
+            // SingleChildScrollView(
+            //   child: Padding(
+            //     padding: const EdgeInsets.symmetric(horizontal: 20),
+            //     child: Column(children: [
+            //       const SizedBox(height: 50, ),
+            //       Container(
+            //         width:1000,
+            //         height:35,
+            //         decoration: const BoxDecoration(
+            //           color: Color(0xFF00E5FF)
+            //         ),
+            //         child: Padding(
+            //           padding: const EdgeInsets.symmetric(horizontal: 10),
+            //           child: Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: const [
+            //             Text('selectoption',
+                        
+            //             ),
+            //             Icon(Icons.arrow_drop_down),
+            //           ],
+            //           ),
+            //         ),
+            //       ),
+            //       ListView(
+            //         primary: true,
+            //         shrinkWrap: true,
+            //         children:items.map((e) => Container(
+            //           decoration: const BoxDecoration(
+            //           color: Color(0xFF00E5FF)
+            //         ),
+            //           child: Padding(
+            //             padding: const EdgeInsets.all(8.0),
+            //             child:InkWell(onTap: () {
+            //               items=e as List<String>;
+            //               setState(() {
+            //                 selectoption=e;
+            //               });
+            //             },
+                        
+            //             child: Text(e),
+            //             ),
+            //           ),
+            //         )).toList(),
+            //       ),
+            //     ]
+            //     ),
+
+            //   ),
+            // ),
             Container(
               height: 10,
             ),
@@ -125,10 +186,7 @@ class _AddMedicineState extends State<AddMedicine> {
                 Navigator.of(context)
                    .push(MaterialPageRoute(builder: (context) =>const timepicker()));
               },
-              
-              
-         
-              style: ElevatedButton.styleFrom(
+               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(320.0, 50.0),
                 backgroundColor: const Color(0xFF00E5FF),
               ),
@@ -139,6 +197,72 @@ class _AddMedicineState extends State<AddMedicine> {
                       color: Colors.white)),
                      
             ),
+             Container(
+              height: 20,
+            ),
+
+
+
+              Container(
+                width: 300,
+              decoration: const BoxDecoration(
+              color:Color(0xFF00E5FF),
+              ),
+                child: DropdownButton(
+                  underline: Container(),
+                  isExpanded: true,
+                  alignment: Alignment.centerLeft,
+                hint: const SizedBox(
+                  
+                  child: Center(child: Text("Refill remainder",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),))),
+                dropdownColor: const Color(0xFF00E5FF),
+                icon: const Icon(Icons.arrow_drop_down),
+                iconSize: 36,
+                
+                value: valuechoose,
+                
+                onChanged: (newValue){
+                  setState(() {
+                    valuechoose=newValue as String? ;
+                  });
+                }, 
+                items:listItem.map((valueItem){
+                  return DropdownMenuItem(
+                    
+                    
+                    value:valueItem,
+                    child:Padding(
+                       padding: const EdgeInsets.symmetric(horizontal: 10),
+                   
+                      child: Row(
+                        //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                         
+                        children: [
+                          // alignment: Alignment.centerLeft,
+                          
+                          Text(valueItem ,
+                          
+                           style: const TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    
+                                    // fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                        ],
+                      ),
+                    ),
+                      );
+                      })
+                  .toList(),
+                  //   ),
+                  //   );
+                  // }).toList(),
+                          
+              
+                          ),
+              ),
+
           ],
         ),
       )),
