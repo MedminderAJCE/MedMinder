@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login/screens/setalarm.dart';
 // import 'package:intl/intl.dart';
 import 'package:login/screens/setalarm.dart';
+import 'package:login/screens/timepicker.dart';
 
 class AddMedicine extends StatefulWidget {
   const AddMedicine({super.key});
@@ -122,7 +123,7 @@ class _AddMedicineState extends State<AddMedicine> {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context)
-                   .push(MaterialPageRoute(builder: (context) =>const setalarm()));
+                   .push(MaterialPageRoute(builder: (context) =>const timepicker()));
               },
               
               
