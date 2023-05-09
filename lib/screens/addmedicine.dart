@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login/screens/setalarm.dart';
 // import 'package:intl/intl.dart';
 // import 'package:login/screens/setalarm.dart';
 
@@ -119,7 +120,13 @@ class _AddMedicineState extends State<AddMedicine> {
               height: 10,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context)
+                   .push(MaterialPageRoute(builder: (context) =>const setalarm()));
+              },
+              
+              
+         
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(320.0, 50.0),
                 backgroundColor: const Color(0xFF00E5FF),
@@ -129,6 +136,7 @@ class _AddMedicineState extends State<AddMedicine> {
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                       color: Colors.white)),
+                     
             ),
           ],
         ),
