@@ -22,11 +22,10 @@ class _AddMedicineState extends State<AddMedicine> {
     // bool isopen=false;
     String? valuechoose;
     List listItem=[
-      'Item 1',
-      'item 2',
-      'item 3',
-       'item 4',
-       'item 5'
+      'Enter no:',
+      'Quantity left:',
+      'Time to refill',
+       
     ];
 
     return Scaffold(
@@ -214,7 +213,10 @@ class _AddMedicineState extends State<AddMedicine> {
                     alignment: Alignment.centerLeft,
                   hint: const SizedBox(
                     
-                    child: Center(child: Text("Refill Reminder",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),))),
+                    child: Center(child: Text("Refill Reminder",
+                    style: TextStyle(color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20),))),
                   dropdownColor: const Color(0xFF00E5FF),
                   icon: const Icon(Icons.arrow_drop_down),
                   iconSize: 36,
@@ -227,31 +229,17 @@ class _AddMedicineState extends State<AddMedicine> {
                     });
                   }, 
                   items:listItem.map((valueItem){
-                    return DropdownMenuItem(
-                      
-                      
+                    return DropdownMenuItem( 
                       value:valueItem,
-                      child:Padding(
-                         padding: const EdgeInsets.symmetric(horizontal: 10),
-                     
-                        child: Row(
-                          //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                           
-                          children: [
-                            // alignment: Alignment.centerLeft,
-                            
-                            Text(valueItem ,
-                            
-                             style: const TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.white,
-                                      
-                                      // fontStyle: FontStyle.italic,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                          ],
-                        ),
-                      ),
+                      child:Text(valueItem ,
+                      
+                       style: const TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                
+                                // fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.bold),
+                          ),
                         );
                         })
                     .toList(),
