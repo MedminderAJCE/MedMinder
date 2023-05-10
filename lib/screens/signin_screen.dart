@@ -74,6 +74,7 @@ class _SignScreenState extends State<SignScreen> {
                         borderRadius: BorderRadius.circular(30.0)),
                     margin: const EdgeInsets.only(left: 30, right: 30),
                     child: TextFormField(
+                        obscureText: true,
                         controller: passwordText,
                         decoration: const InputDecoration(
                           prefixIcon: Icon(
@@ -82,7 +83,7 @@ class _SignScreenState extends State<SignScreen> {
                           ),
                           hintText: "Password",
                           hintStyle:
-                              TextStyle(fontSize: 18, color: Colors.grey),
+                              TextStyle(fontSize: 18, color: Colors.grey,),
                           border: InputBorder.none,
                         )),
                   ),

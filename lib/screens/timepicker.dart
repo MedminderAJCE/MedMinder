@@ -9,12 +9,14 @@ class timepicker extends StatefulWidget {
 
 class _timepickerState extends State<timepicker> {
   TimeOfDay _timeOfDay = TimeOfDay.now();
+
   void _showTimePicker() {
-    showTimePicker(context: context,
+    showTimePicker(
+      context: context,
       initialTime: TimeOfDay.now(),
     ).then((value) {
       setState(() {
-        _timeOfDay= value!;
+        _timeOfDay = value!;
       });
     });
   }
@@ -27,22 +29,24 @@ class _timepickerState extends State<timepicker> {
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
-              Color(0xFF6096B4),
-              Color(0xFF51B9CD),
-              Color(0xFF00E5FF),
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+          Color(0xFF6096B4),
+          Color(0xFF51B9CD),
+          Color(0xFF00E5FF),
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text(_timeOfDay.format(context).toString(),
-              style: TextStyle(fontSize: 50,color: Colors.white),
+            Text(
+              _timeOfDay.format(context).toString(),
+              style: TextStyle(fontSize: 50, color: Colors.white),
             ),
             MaterialButton(
               onPressed: _showTimePicker,
               child: const Padding(
                 padding: EdgeInsets.all(20.0),
                 child: Text("PICK TIME",
-                    style: TextStyle(color: Colors.lightBlueAccent, fontSize: 25)),
+                    style:
+                        TextStyle(color: Colors.lightBlueAccent, fontSize: 25)),
               ),
               color: Colors.white,
             ),
