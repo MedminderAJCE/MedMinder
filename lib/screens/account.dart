@@ -68,21 +68,22 @@ class _AccountState extends State<Account> {
               buildTextField(labelText: "Mobile Number"),
               buildTextField(labelText: "Email"),
               buildTextField(labelText: "Password",isPasswordTextField: true),
-              const SizedBox(height: 17),
+              const SizedBox(height: 10),
               SizedBox(
                 width: 20,
+
                 child:
-                TextButton(onPressed: (){},
+                ElevatedButton(onPressed: (){},
                     child:
                   const Text("Edit Profile",
                   style: TextStyle(
                     fontSize: 15,
                     letterSpacing: 2,
-                    color: Colors.cyan
+                    color: Colors.white
                   ),),
-                  style: OutlinedButton.styleFrom(
+                  style: ElevatedButton.styleFrom(
                     primary: Colors.cyan,
-                    padding: const EdgeInsets.symmetric(horizontal: 50),
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
                   ),)
               )

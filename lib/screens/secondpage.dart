@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login/reusable_widgets/Settings_file.dart';
+import 'package:login/screens/account.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -23,7 +24,10 @@ class _SettingsState extends State<Settings> {
               SettingsTile(color: Colors.cyan,
                   icon: Icons.person_outline,
                   title: "Account",
-              onTap: (){},),
+              onTap: (){
+                Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const Account()));
+              },),
               const SizedBox(height: 40,),
               SettingsTile(color: Colors.cyan,
                   icon: Icons.info_outline,
