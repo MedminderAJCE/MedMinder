@@ -19,48 +19,43 @@ Widget build(BuildContext context) {
     appBar: AppBar(
       backgroundColor: Colors.cyanAccent,
         title: const Text("Add caretaker details",)),
-    body: Column(
+    floatingActionButton: Align(alignment: Alignment.bottomCenter,
+      child: FloatingActionButton(
 
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Container(
-            alignment: Alignment.bottomCenter,
-            margin: const EdgeInsets.only(bottom: 16),
-            child: FloatingActionButton(
-                backgroundColor: Colors.cyanAccent,
-                child: const Icon(Icons.add),
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                        title: const Text("Caretaker details",),
-                        actions: [
-                          TextFormField(
-                            decoration:
-                            const InputDecoration(hintText: "Name"),
-                          ),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                                hintText: "Phone Number"),
-                          ),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                                hintText: "Email Address"),
-                          ),
-                          TextButton(
-                              style: ButtonStyle(
-                                  backgroundColor:
-                                  MaterialStateProperty.all(
-                                      Colors.cyanAccent)),
-                              onPressed: (){AddCareTakerDetails(name: nameText.text, email: emailText.text, PhnNumber: phoneText.text);
-                              },
-                              child: const Text("Done",
-                              style: TextStyle(color: Colors.black),),)
-                        ],
-                      ));
-                })),
-      ],
+          backgroundColor: Colors.cyanAccent,
+          child: const Icon(Icons.add),
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text("Caretaker details",),
+                  actions: [
+                    TextFormField(
+                      decoration:
+                      const InputDecoration(hintText: "Name"),
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          hintText: "Phone Number"),
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          hintText: "Email Address"),
+                    ),
+                    TextButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                          MaterialStateProperty.all(
+                              Colors.cyanAccent)),
+                      onPressed: (){AddCareTakerDetails(name: nameText.text, email: emailText.text, PhnNumber: phoneText.text);
+                      },
+                      child: const Text("Done",
+                        style: TextStyle(color: Colors.black),),)
+                  ],
+                ));
+          }),
     ),
+
   );
 }
 }
