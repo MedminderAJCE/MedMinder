@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:login/screens/homepage.dart';
-import 'package:login/screens/forgetpassword.dart';
 import 'package:login/screens/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
