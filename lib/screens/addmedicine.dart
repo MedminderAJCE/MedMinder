@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 //import 'package:login/screens/setalarm.dart';
 //import 'package:login/screens/setalarm.dart';
 import 'package:login/screens/timepicker.dart';
+import 'package:login/screens/refillremainder.dart';
+
 
 class AddMedicine extends StatefulWidget {
   const AddMedicine({super.key});
@@ -20,13 +22,12 @@ class _AddMedicineState extends State<AddMedicine> {
     final difference = dateRange.duration;
 
     // bool isopen=false;
-    String? valuechoose;
-    List listItem=[
-      'Enter no:',
-      'Quantity left:',
-      'Time to refill',
-       
-    ];
+    // String? valuechoose;
+    // final List<PopupMenuEntry> listItem = [
+      // 'Enter no:',
+      // 'Quantity left:',
+      // 'Time to refill',
+    // ];
 
     return Scaffold(
       body: Center(
@@ -36,9 +37,32 @@ class _AddMedicineState extends State<AddMedicine> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+               TextField(
+                decoration: InputDecoration(
+                  hintText: "Enter the name of illness",
+                  disabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(21),
+                      borderSide: const BorderSide(
+                        color: Color(0xFF00E5FF),
+                      )),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(21),
+                      borderSide: const BorderSide(
+                        color: Color(0xFF00E5FF),
+                      )),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(21),
+                      borderSide: const BorderSide(
+                        color: Color(0xFF00E5FF),
+                      )),
+                ),
+              ),
+              Container(
+                height: 30,
+              ),
               TextField(
                 decoration: InputDecoration(
-                  hintText: "Enter Medicine Name",
+                  hintText: "Provide the name of physician",
                   disabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(21),
                       borderSide: const BorderSide(
@@ -62,7 +86,31 @@ class _AddMedicineState extends State<AddMedicine> {
               TextField(
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
-                  hintText: "Enter Medicine Dosage",
+                  hintText: "Specify name of the medication",
+                  disabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(21),
+                      borderSide: const BorderSide(
+                        color: Color(0xFF00E5FF),
+                      )),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(21),
+                      borderSide: const BorderSide(
+                        color: Color(0xFF00E5FF),
+                      )),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(21),
+                      borderSide: const BorderSide(
+                        color: Color(0xFF00E5FF),
+                      )),
+                ),
+              ),
+              Container(
+                height: 30,
+              ),
+              TextField(
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  hintText: "Specify Medicine Dosage",
                   disabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(21),
                       borderSide: const BorderSide(
@@ -93,7 +141,7 @@ class _AddMedicineState extends State<AddMedicine> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF00E5FF),
                       ),
-                      child:Text('${start.year}/${start.month}/${start.day}'),
+                      child: Text('${start.year}/${start.month}/${start.day}'),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -113,79 +161,13 @@ class _AddMedicineState extends State<AddMedicine> {
                 'Course Duration :${difference.inDays} days',
                 style: const TextStyle(fontSize: 20),
               ),
-              Container(height: 18),
-              // ElevatedButton(
-              //   onPressed: () {},
-              //   style: ElevatedButton.styleFrom(
-              //     minimumSize: const Size(320.0, 50.0),
-              //     backgroundColor: const Color(0xFF00E5FF),
-              //   ),
-              //   child: const Text('Quantity Left',
-              //       style: TextStyle(
-              //           fontWeight: FontWeight.bold,
-              //           fontSize: 20,
-              //           color: Colors.white)),
-              // ),
-            
-              // SingleChildScrollView(
-              //   child: Padding(
-              //     padding: const EdgeInsets.symmetric(horizontal: 20),
-              //     child: Column(children: [
-              //       const SizedBox(height: 50, ),
-              //       Container(
-              //         width:1000,
-              //         height:35,
-              //         decoration: const BoxDecoration(
-              //           color: Color(0xFF00E5FF)
-              //         ),
-              //         child: Padding(
-              //           padding: const EdgeInsets.symmetric(horizontal: 10),
-              //           child: Row(
-              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //             children: const [
-              //             Text('selectoption',
-                          
-              //             ),
-              //             Icon(Icons.arrow_drop_down),
-              //           ],
-              //           ),
-              //         ),
-              //       ),
-              //       ListView(
-              //         primary: true,
-              //         shrinkWrap: true,
-              //         children:items.map((e) => Container(
-              //           decoration: const BoxDecoration(
-              //           color: Color(0xFF00E5FF)
-              //         ),
-              //           child: Padding(
-              //             padding: const EdgeInsets.all(8.0),
-              //             child:InkWell(onTap: () {
-              //               items=e as List<String>;
-              //               setState(() {
-              //                 selectoption=e;
-              //               });
-              //             },
-                          
-              //             child: Text(e),
-              //             ),
-              //           ),
-              //         )).toList(),
-              //       ),
-              //     ]
-              //     ),
-        
-              //   ),
-              // ),
-              Container(
-                height: 10,
-              ),
+              Container(height: 28),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context)
-                     .push(MaterialPageRoute(builder: (context) =>const timepicker()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const timepicker()));
                 },
-                 style: ElevatedButton.styleFrom(
+                style: ElevatedButton.styleFrom(
                   minimumSize: const Size(320.0, 50.0),
                   backgroundColor: const Color(0xFF00E5FF),
                 ),
@@ -194,63 +176,77 @@ class _AddMedicineState extends State<AddMedicine> {
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Colors.white)),
-                       
               ),
-               Container(
+              Container(
                 height: 20,
               ),
-        
-        
-        
-                Container(
-                  width: 300,
-                decoration: const BoxDecoration(
-                color:Color(0xFF00E5FF),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const refillremainder()));
+                },
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(320.0, 50.0),
+                  backgroundColor: const Color(0xFF00E5FF),
                 ),
-                  child: DropdownButton(
-                    underline: Container(),
-                    isExpanded: true,
-                    alignment: Alignment.centerLeft,
-                  hint: const SizedBox(
-                    
-                    child: Center(child: Text("Refill Reminder",
-                    style: TextStyle(color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20),))),
-                  dropdownColor: const Color(0xFF00E5FF),
-                  icon: const Icon(Icons.arrow_drop_down),
-                  iconSize: 36,
-                  
-                  value: valuechoose,
-                  
-                  onChanged: (newValue){
-                    setState(() {
-                      valuechoose=newValue as String? ;
-                    });
-                  }, 
-                  items:listItem.map((valueItem){
-                    return DropdownMenuItem( 
-                      value:valueItem,
-                      child:Text(valueItem ,
-                      
-                       style: const TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                                
-                                // fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        );
-                        })
-                    .toList(),
-                    //   ),
-                    //   );
-                    // }).toList(),
-                            
-                
-                            ),
-                ),
-        
+                child: const Text('Refill Remainder',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.white)),
+              ),
+
+              //  PopupMenuButton (
+              //   itemBuilder: ((context)  => listItem),
+              //   // icon:const Icon(Icons.home),
+              //   icon: Container(
+              //   width: 300,
+              //   decoration: const BoxDecoration(
+              //   color:Color(0xFF00E5FF),
+              //   ),
+              //   child: DropdownButton(
+              //     underline: Container(),
+              //     isExpanded: true,
+              //     alignment: Alignment.centerLeft,
+              //   hint: const SizedBox(
+
+              //     child: Center(child: Text("Refill Reminder",
+              //     style: TextStyle(color: Colors.white,
+              //     fontWeight: FontWeight.bold,
+              //     fontSize: 20),))),
+              //   dropdownColor: const Color(0xFF00E5FF),
+              //   icon: const Icon(Icons.arrow_drop_down),
+              //   iconSize: 36,
+
+              //   value: valuechoose,
+
+              //   onChanged: (newValue){
+              //     setState(() {
+              //       valuechoose=newValue as String? ;
+              //     });
+              //   },
+              //   items:listItem.map((valueItem){
+              //     return DropdownMenuItem(
+              //       value:valueItem,
+              //       child:Text(valueItem as String ,
+
+              //        style: const TextStyle(
+              //                 fontSize: 18,
+              //                 color: Colors.white,
+
+              //                 // fontStyle: FontStyle.italic,
+              //                 fontWeight: FontWeight.bold),
+              //           ),
+              //         );
+              //         })
+              //     .toList(),
+              //     //   ),
+              //     //   );
+              //     // }).toList(),
+
+              //             ),
+              // ),
+              //  ),
             ],
           ),
         ),
@@ -271,6 +267,4 @@ class _AddMedicineState extends State<AddMedicine> {
       dateRange = newDateRange;
     });
   }
-    
-  }
-
+}
