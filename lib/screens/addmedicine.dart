@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 //import 'package:login/screens/setalarm.dart';
 import 'package:login/screens/timepicker.dart';
 import 'package:login/screens/refillremainder.dart';
-
+import 'package:intl/intl.dart';
 
 class AddMedicine extends StatefulWidget {
   const AddMedicine({super.key});
@@ -20,15 +20,6 @@ class _AddMedicineState extends State<AddMedicine> {
     final start = dateRange.start;
     final end = dateRange.end;
     final difference = dateRange.duration;
-
-    // bool isopen=false;
-    // String? valuechoose;
-    // final List<PopupMenuEntry> listItem = [
-      // 'Enter no:',
-      // 'Quantity left:',
-      // 'Time to refill',
-    // ];
-
     return Scaffold(
       body: Center(
           child: SizedBox(
@@ -37,9 +28,9 @@ class _AddMedicineState extends State<AddMedicine> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-               TextField(
+              TextField(
                 decoration: InputDecoration(
-                  hintText: "Enter the name of illness",
+                  hintText: "Specify the name of illness",
                   disabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(21),
                       borderSide: const BorderSide(
@@ -141,7 +132,7 @@ class _AddMedicineState extends State<AddMedicine> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF00E5FF),
                       ),
-                      child: Text('${start.year}/${start.month}/${start.day}'),
+                      child: Text(DateFormat('yyyy/MM/dd').format(start)),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -151,7 +142,7 @@ class _AddMedicineState extends State<AddMedicine> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF00E5FF),
                       ),
-                      child: Text('${start.year}/${start.month}/${start.day}'),
+                      child: Text(DateFormat('yyyy/MM/dd').format(end)),
                     ),
                   ),
                 ],
@@ -195,58 +186,6 @@ class _AddMedicineState extends State<AddMedicine> {
                         fontSize: 20,
                         color: Colors.white)),
               ),
-
-              //  PopupMenuButton (
-              //   itemBuilder: ((context)  => listItem),
-              //   // icon:const Icon(Icons.home),
-              //   icon: Container(
-              //   width: 300,
-              //   decoration: const BoxDecoration(
-              //   color:Color(0xFF00E5FF),
-              //   ),
-              //   child: DropdownButton(
-              //     underline: Container(),
-              //     isExpanded: true,
-              //     alignment: Alignment.centerLeft,
-              //   hint: const SizedBox(
-
-              //     child: Center(child: Text("Refill Reminder",
-              //     style: TextStyle(color: Colors.white,
-              //     fontWeight: FontWeight.bold,
-              //     fontSize: 20),))),
-              //   dropdownColor: const Color(0xFF00E5FF),
-              //   icon: const Icon(Icons.arrow_drop_down),
-              //   iconSize: 36,
-
-              //   value: valuechoose,
-
-              //   onChanged: (newValue){
-              //     setState(() {
-              //       valuechoose=newValue as String? ;
-              //     });
-              //   },
-              //   items:listItem.map((valueItem){
-              //     return DropdownMenuItem(
-              //       value:valueItem,
-              //       child:Text(valueItem as String ,
-
-              //        style: const TextStyle(
-              //                 fontSize: 18,
-              //                 color: Colors.white,
-
-              //                 // fontStyle: FontStyle.italic,
-              //                 fontWeight: FontWeight.bold),
-              //           ),
-              //         );
-              //         })
-              //     .toList(),
-              //     //   ),
-              //     //   );
-              //     // }).toList(),
-
-              //             ),
-              // ),
-              //  ),
             ],
           ),
         ),
