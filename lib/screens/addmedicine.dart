@@ -180,7 +180,7 @@ class _AddMedicineState extends State<AddMedicine> {
                   minimumSize: const Size(320.0, 50.0),
                   backgroundColor: const Color(0xFF00E5FF),
                 ),
-                child: const Text('Refill Remainder',
+                child: const Text('Refill Reminder',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
