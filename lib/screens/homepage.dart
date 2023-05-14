@@ -29,13 +29,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
        body: Container(child: widgetList[myindex],),
-      appBar: AppBar(
-        
-        // iconTheme: IconThemeData(color: Colors.black),
-        // title: Text("Hello User", style: TextStyle(color: Colors.black)),
-        centerTitle: true,
-        backgroundColor: Color(0xFF00E5FF),
-      ),
+      appBar:PreferredSize( //wrap with PreferredSize
+                preferredSize: Size.fromHeight(35), //height of appbar
+                child: AppBar(
+                  centerTitle: true, //appbar title
+                  backgroundColor: Color(0xFF00E5FF),//appbar background color
+                    
+              // iconTheme: IconThemeData(color: Colors.black),
+              // title: Text("Hello User", style: TextStyle(color: Colors.black)),
+                )
+          ),
       drawer: Drawer(
         backgroundColor: Color(0xFF00E5FF),
         child: Container(
@@ -97,47 +100,50 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     
-     bottomNavigationBar: BottomNavigationBar(
-      onTap: (index) {
-        setState(() {
-            myindex=index;
-        });
-      
-      },
-      currentIndex: myindex,
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: Color(0xFF00E5FF),
-      iconSize: 37,
-      selectedFontSize: 15,
-      unselectedFontSize: 15,
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.white,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      items:const [
-        BottomNavigationBarItem(
-          icon:Icon(Icons.home,
-          
-          color: Colors.white,),
-          label: 'home',
-          
-         ),
-         
-
-        BottomNavigationBarItem(
-          label: 'add medicine',
-          
-          icon:Icon(Icons.add_circle_outlined ,
-          color: Colors.white,),
-          ),
-
+     bottomNavigationBar: SizedBox(
+        height: 50, 
+       child: BottomNavigationBar(
+        onTap: (index) {
+          setState(() {
+              myindex=index;
+          });
+        
+        },
+        currentIndex: myindex,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Color(0xFF00E5FF),
+        iconSize: 20,
+        selectedFontSize: 14,
+        unselectedFontSize: 14,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items:const [
           BottomNavigationBarItem(
-            label: 'account',
-          icon:Icon(Icons.account_circle_rounded,
-          color: Colors.white,),
-         ),
-
-      ]),
+            icon:Icon(Icons.home,
+            
+            color: Colors.white,),
+            label: 'home',
+            
+           ),
+           
+     
+          BottomNavigationBarItem(
+            label: 'add medicine',
+            
+            icon:Icon(Icons.add_circle_outlined ,
+            color: Colors.white,),
+            ),
+     
+            BottomNavigationBarItem(
+              label: 'account',
+            icon:Icon(Icons.account_circle_rounded,
+            color: Colors.white,),
+           ),
+     
+        ]),
+     ),
     
 
     //  Need to change the gnav no need 
