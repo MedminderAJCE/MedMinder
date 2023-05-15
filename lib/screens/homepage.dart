@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:login/screens/Aboutus.dart';
 import 'package:login/screens/account.dart';
 import 'package:login/screens/addmedicine.dart';
 import 'package:login/screens/firstpage.dart';
@@ -76,6 +77,18 @@ class _HomePageState extends State<HomePage> {
                       MaterialPageRoute(builder: (context) => Settings()));
                 },
               ),
+              ListTile(
+                leading: Icon(Icons.info_outline, color: Colors.white,),  //build circle
+                title: Text(
+                  'About Us',
+                  style: TextStyle(fontSize: 15 ,color: Colors.white,),
+                ),
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => AboutUsPage()));
+                },
+              ),
+
               ListTile(
                 leading: Icon(IconData(0xe3b3, fontFamily: 'MaterialIcons'), color: Colors.white,),
                 title: Text(
