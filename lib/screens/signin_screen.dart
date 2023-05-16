@@ -29,7 +29,7 @@ class _SignScreenState extends State<SignScreen> {
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
               gradient: LinearGradient(colors: [
-                Color(0xFF6096B4),
+                Color(0xff5ac7cf),
                 Color(0xFF51B9CD),
                 Color(0xFF00E5FF),
               ], begin: Alignment.topRight, end: Alignment.bottomLeft),
@@ -38,19 +38,20 @@ class _SignScreenState extends State<SignScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 35),
-                  const Center(
-                      child: Text(
-                    "Welcome!",
-                    style: TextStyle(fontSize: 45, color: Colors.white),
+                  const SizedBox(height: 45),
+                   Container(
+                     padding: const EdgeInsets.only(top: 60),
+                      child: const Text(
+                    "Welcome Back!",
+                    style: TextStyle(fontWeight: FontWeight.bold,
+                        fontSize: 35, color: Colors.white),
                   )),
-                  const SizedBox(height: 50),
-                  const Text("Log in",
+                  const SizedBox(height: 15),
+                  const Text("Login to Continue",
                       style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 35,
+                          fontSize: 20,
                           color: Colors.white)),
-                  const SizedBox(height: 60),
+                  const SizedBox(height: 70),
                   Container(
                       decoration: BoxDecoration(
                           color: Colors.white,
@@ -66,7 +67,7 @@ class _SignScreenState extends State<SignScreen> {
                           border: InputBorder.none,
                         ),
                       )),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 50),
                   Container(
                     decoration: BoxDecoration(
                         color: Colors.white,
@@ -95,6 +96,8 @@ class _SignScreenState extends State<SignScreen> {
                             context: context,
                             builder: (BuildContext context) {
                               return AlertDialog(
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),),
+                                elevation: 0.0,
                                 title: const Text("Reset the Password",style: TextStyle(color: Colors.grey),),
                                 actions: [
                                   TextFormField(
@@ -129,7 +132,7 @@ class _SignScreenState extends State<SignScreen> {
                           style: TextStyle(color: Colors.white)),
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 30),
                   SizedBox(
                     width: 120,
                     child: ElevatedButton(
@@ -151,7 +154,7 @@ class _SignScreenState extends State<SignScreen> {
                         child: const Text(
                           "LOG IN",
                           style: TextStyle(
-                            color: Colors.blue,
+                            color: Colors.grey,
                           ),
                         )),
                   ),

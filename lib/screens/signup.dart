@@ -50,27 +50,27 @@ class _signupState extends State<signup> {
               reusableTextField("Username", Icons.person_outline, false,
                   _usernameTextController),
               const SizedBox(
-                height: 20,
+                height: 40,
               ),
               reusableTextField(
                   "Age", Icons.calendar_month, false, _ageTextController),
               const SizedBox(
-                height: 20,
+                height: 40,
               ),
               reusableTextField(
                   "Phone", Icons.phone, false, _phoneTextController),
               const SizedBox(
-                height: 20,
+                height: 40,
               ),
               reusableTextField(
                   "Email", Icons.mail, false, _emailTextController),
               const SizedBox(
-                height: 20,
+                height: 30,
               ),
               reusableTextField(
                   "Password", Icons.lock, true, _passwordTextController),
               const SizedBox(
-                height: 20,
+                height: 40,
               ),
               SizedBox(
                 width: 120,
@@ -94,10 +94,10 @@ class _signupState extends State<signup> {
                     },
                     child: const Text(
                       "SIGN UP",
-                      style: TextStyle(color: Colors.blue),
+                      style: TextStyle(color: Colors.grey),
                     )),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               TextButton(
                   onPressed: () {
                     Navigator.push(
