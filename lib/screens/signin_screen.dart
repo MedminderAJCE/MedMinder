@@ -154,7 +154,8 @@ class _SignScreenState extends State<SignScreen> {
                         child: const Text(
                           "LOG IN",
                           style: TextStyle(
-                            color: Colors.grey,
+                            color: Color(0xff5ac7cf) ,
+                            fontWeight: FontWeight.bold,
                           ),
                         )),
                   ),
