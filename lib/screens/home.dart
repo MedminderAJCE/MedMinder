@@ -10,12 +10,12 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return  const Scaffold(
       body: Center(
         
         child: Column(
            mainAxisAlignment: MainAxisAlignment.center,
-          children:const [Text(" Add your medicine schedules",
+          children:[Text(" Add your medicine schedules",
         style: TextStyle(
           fontFamily: 'Railway',
           fontSize: 30,

@@ -29,9 +29,9 @@ class _signupState extends State<signup> {
       height: MediaQuery.of(context).size.height,
       decoration: const BoxDecoration(
           gradient: LinearGradient(colors: [
-        Color(0xFF6096B4),
-        Color(0xFF51B9CD),
-        Color(0xFF00E5FF),
+            Color(0xff5ac7cf),
+            Color(0xFF51B9CD),
+            Color(0xFF00E5FF),
       ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
       child: SingleChildScrollView(
         child: Padding(
@@ -94,10 +94,11 @@ class _signupState extends State<signup> {
                     },
                     child: const Text(
                       "SIGN UP",
-                      style: TextStyle(color: Colors.grey),
+                      style: TextStyle(color: Color(0xff5ac7cf),
+                      fontWeight: FontWeight.bold),
                     )),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
               TextButton(
                   onPressed: () {
                     Navigator.push(

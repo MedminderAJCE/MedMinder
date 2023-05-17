@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
        body: Container(child: widgetList[myindex],),
       appBar:PreferredSize( //wrap with PreferredSize
-                preferredSize: Size.fromHeight(35), //height of appbar
+                preferredSize: Size.fromHeight(50), //height of appbar
                 child: AppBar(
                   centerTitle: true, //appbar title
                   backgroundColor: Color(0xFF00E5FF),//appbar background color
@@ -42,8 +42,13 @@ class _HomePageState extends State<HomePage> {
                 )
           ),
       drawer: Drawer(
-        backgroundColor: Color(0xFF00E5FF),
         child: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Color(0xff5ac7cf),
+                Color(0xFF51B9CD),
+                Color(0xFF00E5FF),
+              ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
           // color: Colors.black,
           child: ListView(
             children: [
@@ -127,7 +132,7 @@ class _HomePageState extends State<HomePage> {
       ),
     
      bottomNavigationBar: SizedBox(
-        height: 50, 
+        height: 50,
        child: BottomNavigationBar(
         onTap: (index) {
           setState(() {
