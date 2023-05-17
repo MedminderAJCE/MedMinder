@@ -48,8 +48,7 @@ class _timepickerState extends State<timepicker> {
                     style:
                         TextStyle(color: Colors.lightBlueAccent, fontSize: 25)),
               ),
-              color: Colors.white,
-            ),
+              color: Colors.white,)
           ],
         ),
       ),

@@ -73,7 +73,7 @@ class AboutUsPage extends StatelessWidget {
                     'you and providing you with our Service, to protect our legitimate interests, '
                     'to ensure compliance with legal and financial regulatory obligations, or '
                     'otherwise, subject to your consent.\n\n'
-                    'HOW DO WE COLLECT DAT:\n\n'
+                    'HOW DO WE COLLECT DATA:\n\n'
                      'By creating a profile or register with us – you will be asked to provide Personal\n\n'
                       'It is your voluntary decision whether to provide us with any Personal Information or Health Information, '
                     'however if you do not provide this information you may not be able to '
