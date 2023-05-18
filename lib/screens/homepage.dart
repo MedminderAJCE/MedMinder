@@ -95,9 +95,9 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               ListTile(
-                leading: Icon(IconData(0xe3b3,fontFamily:'MaterialIcons'),color: Colors.white,),
+                leading: Icon(Icons.help,color: Colors.white,),
                 title: Text(
-                  'Help and Support',
+                  'Help & Support',
                   style: TextStyle(fontSize: 15,color: Colors.white,),
                 ),
                 onTap: (){
