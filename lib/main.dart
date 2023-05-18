@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:login/screens/signin_screen.dart';
-import 'package:login/screens/homepage.dart';
+// import 'package:login/screens/signin_screen.dart';
+// import 'package:login/screens/homepage.dart';
 import 'package:login/screens/splash.dart';
 
 Future<void> main() async {
@@ -15,7 +15,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  const MaterialApp(
+      // theme: ThemeData(brightness: Brightness.light),
+      // darkTheme: ThemeData(brightness: Brightness.dark),
+      // themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: SplashScreen(),
