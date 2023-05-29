@@ -30,15 +30,15 @@ Widget build(BuildContext context) {
                 builder: (BuildContext context) => AlertDialog(
                   title: const Text("Caretaker details",),
                   actions: [
-                    TextFormField(
+                    TextFormField(controller: nameText,
                       decoration:
                       const InputDecoration(hintText: "Name"),
                     ),
-                    TextFormField(
+                    TextFormField(controller: phoneText ,
                       decoration: const InputDecoration(
                           hintText: "Phone Number"),
                     ),
-                    TextFormField(
+                    TextFormField(controller: emailText,
                       decoration: const InputDecoration(
                           hintText: "Email Address"),
                     ),
@@ -55,7 +55,7 @@ Widget build(BuildContext context) {
                 ));
           }),
     ),
-
+body: Expanded(child: ListView.builder(itemBuilder: (context))),
   );
 }
 }
