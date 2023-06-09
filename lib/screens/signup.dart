@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:login/reusable_widgets/reusable_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:login/screens/home.dart';
 import 'package:login/screens/homepage.dart';
 import 'package:login/screens/signin_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -29,9 +30,9 @@ class _signupState extends State<signup> {
       height: MediaQuery.of(context).size.height,
       decoration: const BoxDecoration(
           gradient: LinearGradient(colors: [
-            Color(0xff5ac7cf),
-            Color(0xFF51B9CD),
-            Color(0xFF00E5FF),
+        Color(0xff5ac7cf),
+        Color(0xFF51B9CD),
+        Color(0xFF00E5FF),
       ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
       child: SingleChildScrollView(
         child: Padding(
@@ -78,6 +79,7 @@ class _signupState extends State<signup> {
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.white),
                     onPressed: () {
+                      SendEmailVerification();
                       Signup(
                           age: _ageTextController.text,
                           phone: _phoneTextController.text,
@@ -86,16 +88,17 @@ class _signupState extends State<signup> {
                           password: _passwordTextController.text);
                       User? user = FirebaseAuth.instance.currentUser;
                       if (user != null) {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomePage()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (BuildContext context) {
+                          return Home();
+                        }));
                       }
                     },
                     child: const Text(
                       "SIGN UP",
-                      style: TextStyle(color: Color(0xff5ac7cf),
-                      fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Color(0xff5ac7cf),
+                          fontWeight: FontWeight.bold),
                     )),
               ),
               const SizedBox(height: 40),
@@ -127,15 +130,25 @@ Future Signup(
   try {
     await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
+    User? user = FirebaseAuth.instance.currentUser;
+      await user?.sendEmailVerification();
   } on FirebaseAuthException catch (e) {
     String error = e.message.toString();
     if (error == "Given String is empty or null") {
       Fluttertoast.showToast(msg: "Please enter the details");
-    } else
+    } else {
       Fluttertoast.showToast(msg: error);
+    }
   }
   await FirebaseFirestore.instance
       .collection("Users")
       .doc(email)
       .set({'username': username, 'age': age, 'phone': phone});
+  }
+
+
+Future<void> SendEmailVerification() async {
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  bool? isVerified = _auth.currentUser?.emailVerified;
+  print(isVerified);
 }
