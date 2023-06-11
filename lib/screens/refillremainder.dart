@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:login/screens/account.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class refillremainder extends StatefulWidget {
   const refillremainder({super.key});
@@ -9,6 +10,17 @@ class refillremainder extends StatefulWidget {
 }
 
 class _refillremainderState extends State<refillremainder> {
+  NotificationServices notificationServices = NotificationServices();
+
+
+  @override
+  void initState(){
+    super.initState();
+
+    notificationServices.initialiseNotification();
+  } 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,6 +102,74 @@ class _refillremainderState extends State<refillremainder> {
                           fontSize: 20,
                           color: Colors.white)),
                 ),
+                Container(
+                  height: 20,
+                ),
+
+                ElevatedButton(
+                  onPressed: () {
+                    notificationServices.sendNotification(
+                      "Time to refill the medicine",
+                       "time to fill the  xyz medicine");
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (context) => const refillremainder()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(320.0, 50.0),
+                    backgroundColor: const Color(0xFF00E5FF),
+                  ),
+                  child: const Text('Send notifi',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white)),
+                ),
+
+                    Container(
+                  height: 20,
+                ),
+
+                ElevatedButton(
+                  onPressed: () {
+                    notificationServices.scheduleNotification(
+                      'scheduled for minute', 
+                      'test');
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (context) => const refillremainder()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(320.0, 50.0),
+                    backgroundColor: const Color(0xFF00E5FF),
+                  ),
+                  child: const Text('Schedule notifi',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white)),
+                ),
+
+
+                
+                    Container(
+                  height: 20,
+                ),
+
+                ElevatedButton(
+                  onPressed: () {
+                    notificationServices.stopnotification();
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (context) => const refillremainder()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(320.0, 50.0),
+                    backgroundColor: const Color(0xFF00E5FF),
+                  ),
+                  child: const Text('Stop  notifi',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white)),
+                ),
               ],
             ),
           ),
@@ -97,4 +177,63 @@ class _refillremainderState extends State<refillremainder> {
       ),
     );
   }
+}
+class NotificationServices{
+  final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin = 
+  FlutterLocalNotificationsPlugin();
+
+  final AndroidInitializationSettings _androidInitializationSettings = AndroidInitializationSettings('mipmap/ic_launcher');
+
+  void initialiseNotification() async {
+    InitializationSettings initializationSettings = InitializationSettings(
+      android: _androidInitializationSettings,
+
+    );
+     await _flutterLocalNotificationsPlugin.initialize(initializationSettings);
+  }
+
+
+  void sendNotification(String title , String body) async {
+  
+      AndroidNotificationDetails androidnotificationdetails =const AndroidNotificationDetails(
+        'channelId', 
+        'channelName',
+        importance: Importance.max ,
+        // icon: "icon",
+        priority: Priority.high);
+
+         NotificationDetails notificationDetails=NotificationDetails(
+          android: androidnotificationdetails
+         );
+
+   await  _flutterLocalNotificationsPlugin.show(
+      0, 
+      title,
+       body, 
+       notificationDetails);
+  }
+  void scheduleNotification(String title , String body) async {
+  
+      AndroidNotificationDetails androidnotificationdetails =const AndroidNotificationDetails(
+        'channelId', 
+        'channelName',
+        importance: Importance.max ,
+        // icon: "icon",
+        priority: Priority.high);
+
+         NotificationDetails notificationDetails=NotificationDetails(
+          android: androidnotificationdetails
+         );
+
+   await  _flutterLocalNotificationsPlugin.periodicallyShow(
+      0, 
+      title,
+       body, 
+       RepeatInterval.everyMinute,
+       notificationDetails);
+  }
+  void stopnotification() async {
+    _flutterLocalNotificationsPlugin.cancel(0);
+  }
+
 }
