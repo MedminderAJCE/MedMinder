@@ -30,9 +30,9 @@ class _AccountState extends State<Account> {
                         border: Border.all(width: 4, color: Colors.white),
                         boxShadow: [
                           BoxShadow(
-                            spreadRadius: 2,
-                            blurRadius: 10,
-                            color: Colors.cyan.withOpacity(0.1)
+                              spreadRadius: 2,
+                              blurRadius: 10,
+                              color: Colors.cyan.withOpacity(0.1)
                           )
                         ],
                         shape: BoxShape.circle,
@@ -45,12 +45,12 @@ class _AccountState extends State<Account> {
                         height: 40,
                         width: 40,
                         decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            width: 4,
-                            color: Colors.white
-                          ),
-                          color: Colors.cyan
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                                width: 4,
+                                color: Colors.white
+                            ),
+                            color: Colors.cyan
 
                         ),
                         child: const Icon(
@@ -70,22 +70,22 @@ class _AccountState extends State<Account> {
               buildTextField(labelText: "Password",isPasswordTextField: true),
               const SizedBox(height: 10),
               SizedBox(
-                width: 20,
+                  width: 20,
 
-                child:
-                ElevatedButton(onPressed: (){},
+                  child:
+                  ElevatedButton(onPressed: (){},
                     child:
-                  const Text("Edit Profile",
-                  style: TextStyle(
-                    fontSize: 15,
-                    letterSpacing: 2,
-                    color: Colors.white
-                  ),),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.cyan,
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
-                  ),)
+                    const Text("Edit Profile",
+                      style: TextStyle(
+                          fontSize: 15,
+                          letterSpacing: 2,
+                          color: Colors.white
+                      ),),
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.cyan,
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+                    ),)
               )
             ],
           ),
