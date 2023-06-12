@@ -19,9 +19,58 @@ class _CaretakerState extends State<Caretaker> {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.cyanAccent,
-),
+          title: const Text(
+            "Add caretaker details",
+          )),
+      floatingActionButton: Align(
+        alignment: Alignment.bottomCenter,
+        child: FloatingActionButton(
+            backgroundColor: Colors.cyanAccent,
+            child: const Icon(Icons.add),
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                        title: const Text(
+                          "Caretaker details",
+                        ),
+                        actions: [
+                          TextFormField(
+                            controller: nameText,
+                            decoration: const InputDecoration(hintText: "Name"),
+                          ),
+                          TextFormField(
+                            controller: phoneText,
+                            decoration:
+                                const InputDecoration(hintText: "Phone Number"),
+                          ),
+                          TextFormField(
+                            controller: emailText,
+                            decoration: const InputDecoration(
+                                hintText: "Email Address"),
+                          ),
+                          TextButton(
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    Colors.cyanAccent)),
+                            onPressed: () {
+                              AddCareTakerDetails(
+                                  name: nameText.text,
+                                  email: emailText.text,
+                                  PhnNumber: phoneText.text);
+                            },
+                            child: const Text(
+                              "Done",
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          )
+                        ],
+                      ));
+            }),
+      ),
+      //body: Expanded(child: ListView.builder(itemBuilder: (context))),
     );
- }
+  }
 }
 
 Future AddCareTakerDetails(
