@@ -90,7 +90,7 @@ class _signupState extends State<signup> {
                       if (user!.emailVerified==true) {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (BuildContext context) {
-                          return Home();
+                          return HomePage();
                         }));
                       }
                       else{
@@ -155,3 +155,5 @@ Future<void> SendEmailVerification() async {
   bool? isVerified = _auth.currentUser?.emailVerified;
   print(isVerified);
 }
+
+
