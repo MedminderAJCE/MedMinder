@@ -79,7 +79,6 @@ class _signupState extends State<signup> {
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.white),
                     onPressed: () {
-                      SendEmailVerification();
                       Signup(
                           age: _ageTextController.text,
                           phone: _phoneTextController.text,
@@ -87,7 +86,7 @@ class _signupState extends State<signup> {
                           email: _emailTextController.text,
                           password: _passwordTextController.text);
                       User? user = FirebaseAuth.instance.currentUser;
-                      if (user!.emailVerified==true) {
+                      if (user?.emailVerified==true) {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (BuildContext context) {
                               return const HomePage();
@@ -138,7 +137,8 @@ Future Signup(
     await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
     User? user = FirebaseAuth.instance.currentUser;
-      await user?.sendEmailVerification();
+    print("Sending verification email to the user");
+    await user?.sendEmailVerification();
   } on FirebaseAuthException catch (e) {
     String error = e.message.toString();
     if (error == "Given String is empty or null") {
@@ -152,12 +152,3 @@ Future Signup(
       .doc(email)
       .set({'username': username, 'age': age, 'phone': phone});
   }
-
-
-Future<void> SendEmailVerification() async {
-  FirebaseAuth _auth = FirebaseAuth.instance;
-  bool? isVerified = _auth.currentUser?.emailVerified;
-  print(isVerified);
-}
-
-
