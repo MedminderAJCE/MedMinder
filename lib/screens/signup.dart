@@ -87,11 +87,14 @@ class _signupState extends State<signup> {
                           email: _emailTextController.text,
                           password: _passwordTextController.text);
                       User? user = FirebaseAuth.instance.currentUser;
-                      if (user != null) {
+                      if (user!.emailVerified==true) {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (BuildContext context) {
                           return Home();
                         }));
+                      }
+                      else{
+                        Fluttertoast.showToast(msg: "An email verification link has been sent to your email. Verify and come back!");
                       }
                     },
                     child: const Text(
