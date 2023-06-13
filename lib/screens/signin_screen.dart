@@ -144,11 +144,16 @@ class _SignScreenState extends State<SignScreen> {
                               email: nameText.text,
                               password: passwordText.text);
                           User? user = _auth.currentUser;
-                          if (user?.email == nameText.text) {
+                          user?.reload();
+                          if (user?.email == nameText.text && user?.emailVerified == true) {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const HomePage()));
+                          }
+                          else if (user?.email == nameText.text) {
+                            Fluttertoast.showToast(msg: "Sorry, your email has not been verified yet. Please try again!");
+                            user?.reload();
                           }
                         },
                         child: const Text(

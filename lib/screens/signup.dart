@@ -90,11 +90,15 @@ class _signupState extends State<signup> {
                       if (user!.emailVerified==true) {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (BuildContext context) {
-                          return HomePage();
+                              return const HomePage();
                         }));
                       }
                       else{
                         Fluttertoast.showToast(msg: "An email verification link has been sent to your email. Verify and come back!");
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (BuildContext context) {
+                              return const SignScreen();
+                            }));
                       }
                     },
                     child: const Text(
