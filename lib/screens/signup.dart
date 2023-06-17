@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:login/reusable_widgets/reusable_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:login/screens/home.dart';
+// import 'package:login/screens/home.dart';
 import 'package:login/screens/homepage.dart';
 import 'package:login/screens/signin_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';

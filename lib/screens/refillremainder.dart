@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:login/screens/account.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+// import 'package:url_launcher/url_launcher.dart';
+
 
 class refillremainder extends StatefulWidget {
   const refillremainder({super.key});
@@ -170,6 +172,38 @@ class _refillremainderState extends State<refillremainder> {
                           fontSize: 20,
                           color: Colors.white)),
                 ),
+                    Container(
+                  height: 20,
+                ),
+
+                ElevatedButton(
+                  onPressed: () async  {
+
+                    // final Uri url =Uri(
+                    //   scheme :'sms',
+                    //   path :"828 9998 286"
+                    // );
+                    //  if (await canLaunchUrl(url)){
+                    //   await launchUrl(url);
+
+                    //  }
+                    //  else{
+                    //   print("show dialog:cannot launch this url");
+                    //  }
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (context) => const refillremainder()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(320.0, 50.0),
+                    backgroundColor: const Color(0xFF00E5FF),
+                  ),
+                  child: const Text('sms demo',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white)),
+                ),
+
               ],
             ),
           ),
@@ -178,6 +212,9 @@ class _refillremainderState extends State<refillremainder> {
     );
   }
 }
+
+
+//  flutter notifications 
 class NotificationServices{
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin = 
   FlutterLocalNotificationsPlugin();
