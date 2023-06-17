@@ -21,6 +21,10 @@ class _AccountState extends State<Account> {
       .snapshots()
       .map((doc) => doc as DocumentSnapshot<Map<String, dynamic>>);
 
+  TextEditingController _usernameTextController = TextEditingController();
+  TextEditingController _ageTextController = TextEditingController();
+  TextEditingController _phoneTextController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
