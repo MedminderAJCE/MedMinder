@@ -14,11 +14,11 @@ class _CaretakerState extends State<Caretaker> {
   TextEditingController nameText = TextEditingController();
   TextEditingController emailText = TextEditingController();
   TextEditingController phoneText = TextEditingController();
-  SnackBar snackBar = SnackBar(content: Text("enter the details completely"),);
+  SnackBar snackBar = SnackBar(
+    content: Text("enter the details completely"),
+  );
 
   late CollectionReference _caretakerCollection;
-
-
 
   @override
   void initState() {
@@ -48,8 +48,7 @@ class _CaretakerState extends State<Caretaker> {
                 ),
                 TextFormField(
                   controller: phoneText,
-                  decoration:
-                  const InputDecoration(hintText: "Phone Number"),
+                  decoration: const InputDecoration(hintText: "Phone Number"),
                 ),
                 TextFormField(
                   controller: emailText,
@@ -58,9 +57,14 @@ class _CaretakerState extends State<Caretaker> {
                 TextButton(
                   style: ButtonStyle(
                     backgroundColor:
-                    MaterialStateProperty.all(Colors.cyanAccent),
+                        MaterialStateProperty.all(Colors.cyanAccent),
                   ),
-                  onPressed: () {AddCareTakerDetails(name: nameText.text, email: emailText.text, PhnNumber: phoneText.text);},
+                  onPressed: () {
+                    AddCareTakerDetails(
+                        name: nameText.text,
+                        email: emailText.text,
+                        PhnNumber: phoneText.text);
+                  },
                   child: const Text(
                     "Done",
                     style: TextStyle(color: Colors.black),
@@ -98,8 +102,6 @@ class _CaretakerState extends State<Caretaker> {
     );
   }
 }
-
-
 
 Future<void> AddCareTakerDetails({
   required String name,

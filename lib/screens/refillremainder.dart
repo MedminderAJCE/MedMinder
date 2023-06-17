@@ -1,7 +1,10 @@
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 // import 'package:login/screens/account.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-// import 'package:url_launcher/url_launcher.dart';
+
+
 
 
 class refillremainder extends StatefulWidget {
@@ -12,7 +15,15 @@ class refillremainder extends StatefulWidget {
 }
 
 class _refillremainderState extends State<refillremainder> {
+  //notifications 
   NotificationServices notificationServices = NotificationServices();
+
+  late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin=flutterLocalNotificationsPlugin;
+
+  // TextEditingController username = TextEditingController();
+  // TextEditingController title =TextEditingController();
+  // TextEditingController body=TextEditingController();
+
 
 
   @override
@@ -20,7 +31,21 @@ class _refillremainderState extends State<refillremainder> {
     super.initState();
 
     notificationServices.initialiseNotification();
+
+    // getToken();
+    // initinfo();
   } 
+
+
+
+// void sendPushMessage(String token , String body , String title ) async {
+//   try{
+//     await http.post{
+
+
+//     }
+//   }
+// }
 
 
   @override
@@ -274,3 +299,9 @@ class NotificationServices{
   }
 
 }
+
+
+
+
+
+
