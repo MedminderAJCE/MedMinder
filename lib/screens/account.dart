@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 class Account extends StatefulWidget {
   const Account({Key? key}) : super(key: key);
@@ -8,9 +9,11 @@ class Account extends StatefulWidget {
 
 class _AccountState extends State<Account> {
 
+  User? user = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
+    String? _email = user?.email;
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.only(left: 15, top: 20, right: 15),
@@ -63,10 +66,10 @@ class _AccountState extends State<Account> {
                 ),
               ),
               SizedBox(height: 30),
-              buildTextField(labelText: "Name"),
+              buildTextField(labelText: "Name" ),
               buildTextField(labelText: "Age"),
               buildTextField(labelText: "Mobile Number"),
-              buildTextField(labelText: "Email"),
+              buildTextField(labelText: "Email", placeholder: _email.toString()),
               buildTextField(labelText: "Password",isPasswordTextField: true),
               const SizedBox(height: 10),
               SizedBox(
