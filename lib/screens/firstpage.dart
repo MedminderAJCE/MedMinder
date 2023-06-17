@@ -1,7 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+// import 'package:url_launcher/url_launcher.dart';
+// import 'package:http/http.dart';
+
+
+
+
+// Future<void> main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp();
+//   await FirebaseMessaging.instance.getInitialMessage();
+//   runApp( const Caretaker());
+// }
 
 class Caretaker extends StatefulWidget {
   const Caretaker({Key? key}) : super(key: key);
@@ -11,9 +26,114 @@ class Caretaker extends StatefulWidget {
 }
 
 class _CaretakerState extends State<Caretaker> {
+
+  //sms
+  String? mtoken ="";
+
+  late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin=flutterLocalNotificationsPlugin;
+
+  // TextEditingController username = TextEditingController();
+  // TextEditingController title =TextEditingController();
+  // TextEditingController body=TextEditingController();
+
+
   TextEditingController nameText = TextEditingController();
   TextEditingController emailText = TextEditingController();
   TextEditingController phoneText = TextEditingController();
+
+
+  
+  @override
+  void initState(){
+    super.initState();
+
+    requestPermission();
+    // already done by steff
+    getToken();
+    // initinfo();
+  } 
+
+
+
+  void requestPermission() async {
+
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+
+  NotificationSettings settings = await messaging.requestPermission(
+    alert: true,
+    announcement: false,
+    badge: true,
+    carPlay: false,
+    criticalAlert: false,
+    provisional: false,
+    sound: true,
+
+  );
+  if (settings.authorizationStatus == AuthorizationStatus.authorized){
+
+    print("User granted permission ");
+
+  }
+  else if (settings.authorizationStatus == AuthorizationStatus.provisional){
+  
+    print("User granted provisional permission");
+
+  }
+  else {
+  
+    print("user declined or has not accepted permnission");
+  }
+
+  
+  }
+
+
+void getToken() async {
+  await FirebaseMessaging.instance.getToken().then(
+    (token){
+      setState(() {
+        mtoken = token;
+        print("My token is $mtoken");
+      });
+      saveToken(token!);
+    } );
+}
+void saveToken(String token) async {
+  await FirebaseFirestore.instance.collection("Care Taker").doc("user2").set({
+    'token':token,
+  });
+}
+
+
+
+// void saveToken(String token) async {
+//   await FirebaseFirestore.instance.collection("Care Taker").doc("user2").set({
+//     'token':token,
+//   });
+// }
+
+ initinfo(){
+  var androidInitialize= const AndroidInitializationSettings('mipmap/ic_launcher');
+  var iosInitialize = const IOSInitializationSettings();
+  var initializationSettings = InitializationSettings(
+    android: androidInitialize,
+    iOS: iosInitialize,
+  );
+  flutterLocalNotificationsPlugin.initialize(initializationSettings,onSelectNotification:(String?payload) async {
+  try{
+    if(payload != null && payload.isNotEmpty){
+
+    }
+    else{
+  
+    }
+
+  }catch(e){
+    //just comment 
+  }
+  return;
+});
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,6 +198,7 @@ Future AddCareTakerDetails(
     required String email,
     required String PhnNumber}) async {
   try {
+
     await FirebaseFirestore.instance
         .collection("Care Taker")
         .doc(email)

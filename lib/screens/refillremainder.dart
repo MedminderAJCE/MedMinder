@@ -1,7 +1,9 @@
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 // import 'package:login/screens/account.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-// import 'package:url_launcher/url_launcher.dart';
+
 
 
 
@@ -16,13 +18,11 @@ class _refillremainderState extends State<refillremainder> {
   //notifications 
   NotificationServices notificationServices = NotificationServices();
 
-  //sms
+  late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin=flutterLocalNotificationsPlugin;
 
-
-  // final _formkey = GlobalKey<FormState>();
-  // final TextEditingController _phoneController = TextEditingController();
-  // final TextEditingController _msgcontroller =TextEditingController();
-  // final TextEditingController _valueSms=TextEditingController();
+  // TextEditingController username = TextEditingController();
+  // TextEditingController title =TextEditingController();
+  // TextEditingController body=TextEditingController();
 
 
 
@@ -31,7 +31,21 @@ class _refillremainderState extends State<refillremainder> {
     super.initState();
 
     notificationServices.initialiseNotification();
+
+    // getToken();
+    // initinfo();
   } 
+
+
+
+// void sendPushMessage(String token , String body , String title ) async {
+//   try{
+//     await http.post{
+
+
+//     }
+//   }
+// }
 
 
   @override
@@ -285,3 +299,9 @@ class NotificationServices{
   }
 
 }
+
+
+
+
+
+
