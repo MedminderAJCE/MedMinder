@@ -139,11 +139,13 @@ class _SignScreenState extends State<SignScreen> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                         ),
-                        onPressed: () {
+                        onPressed: () async {
                           Signin(
                               email: nameText.text,
                               password: passwordText.text);
                           User? user = _auth.currentUser;
+                          await user?.reload();
+                          user = _auth.currentUser;
                           if (user?.email == nameText.text && user?.emailVerified == true) {
                             Navigator.pushReplacement(
                                 context,
