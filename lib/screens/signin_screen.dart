@@ -145,6 +145,7 @@ class _SignScreenState extends State<SignScreen> {
                               password: passwordText.text);
                           User? user = _auth.currentUser;
                           await user?.reload();
+                          user = _auth.currentUser;
                           if (user?.email == nameText.text && user?.emailVerified == true) {
                             Navigator.pushReplacement(
                                 context,

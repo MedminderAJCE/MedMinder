@@ -138,6 +138,7 @@ Future Signup(
         .createUserWithEmailAndPassword(email: email, password: password);
     User? user = FirebaseAuth.instance.currentUser;
     print("Sending verification email to the user");
+    user?.updateDisplayName(username);
     await user?.sendEmailVerification();
   } on FirebaseAuthException catch (e) {
     String error = e.message.toString();
