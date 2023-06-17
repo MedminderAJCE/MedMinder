@@ -46,6 +46,7 @@ dependencies:
   cloud_firestore: ^4.5.0
   flutter_local_notifications: ^9.7.0
   url_launcher: ^6.1.11
+  telephony: any
   
   # google_nav_bar: ^5.0.6
   #added dependency

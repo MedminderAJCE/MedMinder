@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:login/screens/account.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
+
 
 class refillremainder extends StatefulWidget {
   const refillremainder({super.key});
@@ -177,17 +178,18 @@ class _refillremainderState extends State<refillremainder> {
 
                 ElevatedButton(
                   onPressed: () async  {
-                    final Uri url =Uri(
-                      scheme :'sms',
-                      path :"828 9998 286"
-                    );
-                     if (await canLaunchUrl(url)){
-                      await launchUrl(url);
 
-                     }
-                     else{
-                      print("show dialog:cannot launch this url");
-                     }
+                    // final Uri url =Uri(
+                    //   scheme :'sms',
+                    //   path :"828 9998 286"
+                    // );
+                    //  if (await canLaunchUrl(url)){
+                    //   await launchUrl(url);
+
+                    //  }
+                    //  else{
+                    //   print("show dialog:cannot launch this url");
+                    //  }
                     // Navigator.of(context).push(MaterialPageRoute(
                     //     builder: (context) => const refillremainder()));
                   },
@@ -210,6 +212,9 @@ class _refillremainderState extends State<refillremainder> {
     );
   }
 }
+
+
+//  flutter notifications 
 class NotificationServices{
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin = 
   FlutterLocalNotificationsPlugin();
