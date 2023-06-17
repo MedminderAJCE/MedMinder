@@ -18,6 +18,9 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 //   runApp( const Caretaker());
 // }
 
+  //sms
+  String? mtoken ="";
+
 class Caretaker extends StatefulWidget {
   const Caretaker({Key? key}) : super(key: key);
 
@@ -28,7 +31,7 @@ class Caretaker extends StatefulWidget {
 class _CaretakerState extends State<Caretaker> {
 
   //sms
-  String? mtoken ="";
+  // String? mtoken ="";
 
   late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin=flutterLocalNotificationsPlugin;
 
@@ -95,16 +98,12 @@ void getToken() async {
         mtoken = token;
         print("My token is $mtoken");
       });
-      saveToken(token!);
+      // saveToken(token!);
     } );
-}
-void saveToken(String token) async {
-  await FirebaseFirestore.instance.collection("Care Taker").doc("user2").set({
-    'token':token,
-  });
+   
 }
 
-
+ 
 
 // void saveToken(String token) async {
 //   await FirebaseFirestore.instance.collection("Care Taker").doc("user2").set({
@@ -174,10 +173,15 @@ void saveToken(String token) async {
                                 backgroundColor: MaterialStateProperty.all(
                                     Colors.cyanAccent)),
                             onPressed: () {
+                              if(mtoken != null){
+
                               AddCareTakerDetails(
                                   name: nameText.text,
                                   email: emailText.text,
-                                  PhnNumber: phoneText.text);
+                                  PhnNumber: phoneText.text ,
+                                  // token:mtoken
+                                  );
+                              }
                             },
                             child: const Text(
                               "Done",
@@ -196,15 +200,22 @@ void saveToken(String token) async {
 Future AddCareTakerDetails(
     {required String name,
     required String email,
-    required String PhnNumber}) async {
+    required String PhnNumber ,
+    // required String mtoken
+    }) async {
   try {
-
+ print("My token is $mtoken");
     await FirebaseFirestore.instance
         .collection("Care Taker")
-        .doc(email)
-        .set({'name': name, 'phone number': PhnNumber});
+        .doc( email)
+        .set({'name': name, 'phone number': PhnNumber , 'token':mtoken});
   } on FirebaseAuthException catch (e) {
     String Toast = e.message.toString();
     Fluttertoast.showToast(msg: Toast);
   }
 }
+// void saveToken(String token) async {
+//   await FirebaseFirestore.instance.collection("Care Taker").doc("email").set({
+//     'token':token,
+//   });
+// }
