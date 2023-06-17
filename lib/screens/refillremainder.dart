@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:login/screens/account.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 // import 'package:url_launcher/url_launcher.dart';
-import 'package:telephony/telephony.dart';
+
 
 
 class refillremainder extends StatefulWidget {
@@ -18,12 +18,12 @@ class _refillremainderState extends State<refillremainder> {
 
   //sms
 
-  final Telephony telephony=Telephony.instance;
-  final _formkey = GlobalKey<FormState>();
-  final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _msgcontroller =TextEditingController();
-  final TextEditingController _valueSms=TextEditingController();
-  
+
+  // final _formkey = GlobalKey<FormState>();
+  // final TextEditingController _phoneController = TextEditingController();
+  // final TextEditingController _msgcontroller =TextEditingController();
+  // final TextEditingController _valueSms=TextEditingController();
+
 
 
   @override
