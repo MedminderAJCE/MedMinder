@@ -25,7 +25,6 @@ class _HomePageState extends State<HomePage> {
     Home(),
     AddMedicine(),
     Account(),
-    
   ];
   @override
   Widget build(BuildContext context) {
