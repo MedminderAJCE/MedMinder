@@ -15,7 +15,7 @@ class TimePicker extends StatefulWidget {
 class _TimePickerState extends State<TimePicker> {
   TimeOfDay _timeOfDay = TimeOfDay.now();
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-  FlutterLocalNotificationsPlugin();
+      FlutterLocalNotificationsPlugin();
 
   @override
   void initState() {
@@ -26,29 +26,28 @@ class _TimePickerState extends State<TimePicker> {
   Future<void> initializeNotifications() async {
     tz.initializeTimeZones();
     const AndroidInitializationSettings initializationSettingsAndroid =
-    AndroidInitializationSettings('ic_launcher');
+        AndroidInitializationSettings('ic_launcher');
     final InitializationSettings initializationSettings =
-    InitializationSettings(android: initializationSettingsAndroid);
+        InitializationSettings(android: initializationSettingsAndroid);
 
     await flutterLocalNotificationsPlugin.initialize(initializationSettings,
         onSelectNotification: (String? payload) async {
-          if (payload != null) {
-            debugPrint('Notification payload: $payload');
-          }
-        });
+      if (payload != null) {
+        debugPrint('Notification payload: $payload');
+      }
+    });
 
     const AndroidNotificationChannel channel = AndroidNotificationChannel(
-      'my_notification_channel', // Provide a unique ID for the channel
-      'My Notifications', // Provide a name for the channel
-      description:
-      'Notification Channel for MedMinder', // Provide a description for the channel
-      importance: Importance.high,
-      sound: RawResourceAndroidNotificationSound('tone')
-    );
+        'my_notification_channel', // Provide a unique ID for the channel
+        'My Notifications', // Provide a name for the channel
+        description:
+            'Notification Channel for MedMinder', // Provide a description for the channel
+        importance: Importance.high,
+        sound: RawResourceAndroidNotificationSound('tone'));
 
     await flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>()
+            AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(channel);
   }
 
@@ -84,26 +83,26 @@ class _TimePickerState extends State<TimePicker> {
     final bool isAfter = selectedDateTime.isAfter(now);
     if (isAfter) {
       final AndroidNotificationDetails androidPlatformChannelSpecifics =
-      AndroidNotificationDetails(
-        'my_notification_channel', // Provide the same channel ID used when creating the channel
-        'My Notifications', // Provide the same channel name used when creating the channel
-        channelDescription:
-        'Notification Channel for MedMinder', // Provide the same channel description used when creating the channel
-        importance: Importance.high,
-      );
+          AndroidNotificationDetails(
+              'my_notification_channel', // Provide the same channel ID used when creating the channel
+              'My Notifications', // Provide the same channel name used when creating the channel
+              channelDescription:
+                  'Notification Channel for MedMinder', // Provide the same channel description used when creating the channel
+              importance: Importance.high,
+              sound: RawResourceAndroidNotificationSound('tone'));
 
       final NotificationDetails platformChannelSpecifics =
-      NotificationDetails(android: androidPlatformChannelSpecifics);
+          NotificationDetails(android: androidPlatformChannelSpecifics);
 
       flutterLocalNotificationsPlugin.zonedSchedule(
         0,
-        'Alarm',
-        'Alarm triggered',
+        'Please take your medicine',
+        'It is time to take your medicine. Do not forget!',
         tz.TZDateTime.from(selectedDateTime, tz.local),
         platformChannelSpecifics,
         androidAllowWhileIdle: true,
         uiLocalNotificationDateInterpretation:
-        UILocalNotificationDateInterpretation.absoluteTime,
+            UILocalNotificationDateInterpretation.absoluteTime,
       );
     } else {
       showDialog(
@@ -168,9 +167,8 @@ class _TimePickerState extends State<TimePicker> {
               onPressed: () {
                 Navigator.pop(context); // Navigate back to the previous screen
               },
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent
-              ),
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
               child: Text(
                 'Go back',
                 style: TextStyle(fontSize: 20),
