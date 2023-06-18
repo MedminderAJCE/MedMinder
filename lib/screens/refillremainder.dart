@@ -140,9 +140,7 @@ class _refillremainderState extends State<refillremainder> {
                 //           fontSize: 20,
                 //           color: Colors.white)),
                 // ),
-                Container(
-                  height: 20,
-                ),
+              
 
                 ElevatedButton(
                   onPressed: () {
@@ -156,7 +154,7 @@ class _refillremainderState extends State<refillremainder> {
                     minimumSize: const Size(320.0, 50.0),
                     backgroundColor: const Color(0xFF00E5FF),
                   ),
-                  child: const Text('Send notifi',
+                  child: const Text('Schedule Notification',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -166,32 +164,10 @@ class _refillremainderState extends State<refillremainder> {
                     Container(
                   height: 20,
                 ),
-
-                ElevatedButton(
-                  onPressed: () {
-                    notificationServices.scheduleNotification(
-                      'scheduled for minute', 
-                      'test');
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (context) => const refillremainder()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(320.0, 50.0),
-                    backgroundColor: const Color(0xFF00E5FF),
-                  ),
-                  child: const Text('Schedule notifi',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.white)),
-                ),
-
 
                 
-                    Container(
-                  height: 20,
-                ),
-
+                
+                
                 ElevatedButton(
                   onPressed: () {
                     notificationServices.stopnotification();
@@ -202,7 +178,7 @@ class _refillremainderState extends State<refillremainder> {
                     minimumSize: const Size(320.0, 50.0),
                     backgroundColor: const Color(0xFF00E5FF),
                   ),
-                  child: const Text('Stop  notifi',
+                  child: const Text('Stop  notification',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -212,34 +188,7 @@ class _refillremainderState extends State<refillremainder> {
                   height: 20,
                 ),
 
-                ElevatedButton(
-                  onPressed: () async  {
-
-                    // final Uri url =Uri(
-                    //   scheme :'sms',
-                    //   path :"828 9998 286"
-                    // );
-                    //  if (await canLaunchUrl(url)){
-                    //   await launchUrl(url);
-
-                    //  }
-                    //  else{
-                    //   print("show dialog:cannot launch this url");
-                    //  }
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (context) => const refillremainder()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(320.0, 50.0),
-                    backgroundColor: const Color(0xFF00E5FF),
-                  ),
-                  child: const Text('sms demo',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.white)),
-                ),
-
+                
               ],
             ),
           ),
