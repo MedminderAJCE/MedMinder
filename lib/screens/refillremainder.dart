@@ -4,6 +4,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+import 'addmedicine.dart';
+// import 'package:login/screens/addmedicine.dart';
 // import 'package:url_launcher/url_launcher.dart';
 // import 'package:http/http.dart';
 
@@ -11,9 +14,13 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
   String? mtoken ="";
 
 
+// AddMedicine startdate=startdate;
+// AddMedicine enddate=enddate;
+
+
 
 class refillremainder extends StatefulWidget {
-  const refillremainder({super.key});
+  // const refillremainder({super.key, required DateTime startdate , required DateTime endDate});
 
   @override
   State<refillremainder> createState() => _refillremainderState();
@@ -28,7 +35,6 @@ class _refillremainderState extends State<refillremainder> {
   // TextEditingController username = TextEditingController();
   // TextEditingController title =TextEditingController();
   // TextEditingController body=TextEditingController();
-
 
 
   @override

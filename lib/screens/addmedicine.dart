@@ -229,7 +229,8 @@ class _AddMedicineState extends State<AddMedicine> {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const refillremainder(),
+                      builder: (context) =>  refillremainder(),
+                      // details1: startdate , details2:enddate
                     ));
                   },
                   style: ElevatedButton.styleFrom(
