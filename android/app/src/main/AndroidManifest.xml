@@ -6,9 +6,16 @@
         android:label="MedMinder"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="false" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_launcher" />
+        <meta-data
+            android:name="flutter_local_notifications_sound"
+            android:resource="@raw/tone" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

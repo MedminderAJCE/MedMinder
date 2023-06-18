@@ -43,6 +43,7 @@ class _TimePickerState extends State<TimePicker> {
       description:
       'Notification Channel for MedMinder', // Provide a description for the channel
       importance: Importance.high,
+      sound: RawResourceAndroidNotificationSound('tone')
     );
 
     await flutterLocalNotificationsPlugin
