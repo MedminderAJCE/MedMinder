@@ -97,49 +97,49 @@ class _refillremainderState extends State<refillremainder> {
                 Container(
                   height: 30,
                 ),
-                TextField(
-                  keyboardType: TextInputType.phone,
-                  decoration: InputDecoration(
-                    labelText: "Total quantity left",
-                    // labelStyle: const TextStyle(color: Color(0xFF00E5FF) ),
-                    focusColor: const Color(0xFF00E5FF),
-                    disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(21),
-                        borderSide: const BorderSide(
-                          color: Color(0xFF00E5FF),
-                        )),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(21),
-                        borderSide: const BorderSide(
-                          color: Color(0xFF00E5FF),
-                        )),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(21),
-                        borderSide: const BorderSide(
-                          color: Color(0xFF00E5FF),
-                        )),
-                  ),
-                ),
+                // TextField(
+                //   keyboardType: TextInputType.phone,
+                //   decoration: InputDecoration(
+                //     labelText: "Total quantity left",
+                //     // labelStyle: const TextStyle(color: Color(0xFF00E5FF) ),
+                //     focusColor: const Color(0xFF00E5FF),
+                //     disabledBorder: OutlineInputBorder(
+                //         borderRadius: BorderRadius.circular(21),
+                //         borderSide: const BorderSide(
+                //           color: Color(0xFF00E5FF),
+                //         )),
+                //     focusedBorder: OutlineInputBorder(
+                //         borderRadius: BorderRadius.circular(21),
+                //         borderSide: const BorderSide(
+                //           color: Color(0xFF00E5FF),
+                //         )),
+                //     enabledBorder: OutlineInputBorder(
+                //         borderRadius: BorderRadius.circular(21),
+                //         borderSide: const BorderSide(
+                //           color: Color(0xFF00E5FF),
+                //         )),
+                //   ),
+                // ),
                 Container(
                   height: 20,
                 ),
 
                 //backend
-                ElevatedButton(
-                  onPressed: () {
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (context) => const refillremainder()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(320.0, 50.0),
-                    backgroundColor: const Color(0xFF00E5FF),
-                  ),
-                  child: const Text('Send Notification',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.white)),
-                ),
+                // ElevatedButton(
+                //   onPressed: () {
+                //     // Navigator.of(context).push(MaterialPageRoute(
+                //     //     builder: (context) => const refillremainder()));
+                //   },
+                //   style: ElevatedButton.styleFrom(
+                //     minimumSize: const Size(320.0, 50.0),
+                //     backgroundColor: const Color(0xFF00E5FF),
+                //   ),
+                //   child: const Text('Send Notification',
+                //       style: TextStyle(
+                //           fontWeight: FontWeight.bold,
+                //           fontSize: 20,
+                //           color: Colors.white)),
+                // ),
                 Container(
                   height: 20,
                 ),
@@ -147,8 +147,8 @@ class _refillremainderState extends State<refillremainder> {
                 ElevatedButton(
                   onPressed: () {
                     notificationServices.sendNotification(
-                      "Time to refill the medicine",
-                       "time to fill the  xyz medicine");
+                      "Hey, You have set a medication",
+                       "Don't forget to refill medicine!");
                     // Navigator.of(context).push(MaterialPageRoute(
                     //     builder: (context) => const refillremainder()));
                   },
