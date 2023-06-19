@@ -32,7 +32,7 @@ class Home extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.black,
-            fontSize: 30
+            fontSize: 30,
           ),
         ),
         backgroundColor: Colors.white,
@@ -77,8 +77,7 @@ class Home extends StatelessWidget {
           return ListView.builder(
             itemCount: documents.length,
             itemBuilder: (context, index) {
-              final medication =
-              documents[index].data() as Map<String, dynamic>;
+              final medication = documents[index].data() as Map<String, dynamic>;
               final medicationName = medication['medicationName'];
               final dosage = medication['dosage'];
               final alarmTime = medication['alarmTime'];
@@ -91,29 +90,54 @@ class Home extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Padding(
                   padding: EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        medicationName,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
-                        ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            medicationName,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Dosage: $dosage',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Alarm Time: $alarmTime',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                        ],
                       ),
-                      SizedBox(height: 8),
-                      Text(
-                        'Dosage: $dosage',
-                        style: TextStyle(
-                          fontSize: 18,
+                      IconButton(
+                        icon: Icon(
+                          Icons.delete,
+                          color: Colors.red,
                         ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        'Alarm Time: $alarmTime',
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
+                        onPressed: () {
+                          // Delete medication entry
+                          FirebaseFirestore.instance
+                              .collection('Medications')
+                              .doc(user.email)
+                              .collection('Medicines')
+                              .doc(documents[index].id)
+                              .delete()
+                              .then((value) {
+                            print('Medication deleted successfully');
+                          }).catchError((error) {
+                            print('Failed to delete medication: $error');
+                          });
+                        },
                       ),
                     ],
                   ),
