@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:login/reusable_widgets/Settings_file.dart';
 import 'package:login/screens/account.dart';
+import 'package:login/screens/addmedicine.dart';
+import 'package:login/screens/firstpage.dart';
+import 'package:login/screens/notification.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -30,15 +33,21 @@ class _SettingsState extends State<Settings> {
               },),
               const SizedBox(height: 40,),
               SettingsTile(color: Colors.cyanAccent,
-                  icon: Icons.shield_moon_outlined,
-                  title: "Language",
-                  onTap: (){},
+                  icon: Icons.person,
+                  title: "Caretaker",
+                  onTap: (){
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => const Caretaker()));
+                  },
               ),
               const SizedBox(height: 40,),
               SettingsTile(color: Colors.cyanAccent,
-                  icon: Icons.account_box,
-                  title: "Delete Account",
-                onTap: (){},
+                  icon: Icons.medical_information,
+                  title: "Add Medicine",
+                onTap: (){
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => const AddMedicine()));
+                },
               ),
 
             ],
