@@ -10,6 +10,8 @@ import 'package:login/screens/firstpage.dart';
 import 'package:login/screens/home.dart';
 import 'package:login/screens/secondpage.dart';
 import 'package:login/screens/signin_screen.dart';
+import 'package:login/screens/notification.dart';
+
 // import 'package:google_nav_bar/google_nav_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -69,6 +71,17 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => Caretaker()));
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.attribution, color: Colors.white,),  //build circle
+                title: Text(
+                  'notification demo',
+                  style: TextStyle(fontSize: 15 ,color: Colors.white,),
+                ),
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) =>Notificationss()));
                 },
               ),
               ListTile(
