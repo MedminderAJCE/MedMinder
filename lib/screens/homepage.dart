@@ -73,17 +73,17 @@ class _HomePageState extends State<HomePage> {
                       MaterialPageRoute(builder: (context) => Caretaker()));
                 },
               ),
-              ListTile(
-                leading: Icon(Icons.attribution, color: Colors.white,),  //build circle
-                title: Text(
-                  'notification demo',
-                  style: TextStyle(fontSize: 15 ,color: Colors.white,),
-                ),
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) =>Notificationss()));
-                },
-              ),
+              // ListTile(
+              //   leading: Icon(Icons.attribution, color: Colors.white,),  //build circle
+              //   title: Text(
+              //     'notification demo',
+              //     style: TextStyle(fontSize: 15 ,color: Colors.white,),
+              //   ),
+              //   // onTap: () {
+              //   //   Navigator.of(context).push(
+              //   //       MaterialPageRoute(builder: (context) =>Notification()));
+              //   // },
+              // ),
               ListTile(
                 leading: Icon(IconData(0xe813, fontFamily: 'MaterialIcons'), color: Colors.white,),
                 title: Text(

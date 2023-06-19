@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:login/screens/notification.dart';
+
 
 class Caretaker extends StatefulWidget {
   const Caretaker({Key? key}) : super(key: key);
@@ -59,7 +61,10 @@ class _CaretakerState extends State<Caretaker> {
                       email: emailText.text,
                       phone: phoneText.text,
                     );
+                       Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) =>Notificationss( phone:phoneText.text)));
                   },
+                
                   child: const Text(
                     "Done",
                     style: TextStyle(color: Colors.black),
