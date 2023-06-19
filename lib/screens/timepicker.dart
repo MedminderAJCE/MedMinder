@@ -32,18 +32,23 @@ class _TimePickerState extends State<TimePicker> {
 
     await flutterLocalNotificationsPlugin.initialize(initializationSettings,
         onSelectNotification: (String? payload) async {
-      if (payload != null) {
-        debugPrint('Notification payload: $payload');
+      if (payload == 'alarm_payload') {
+        // Handle stop alarm action here
+        stopAlarm();
+      } else {
+        // Handle other notification actions
+        if (payload != null) {
+          debugPrint('Notification payload: $payload');
+        }
       }
     });
 
     const AndroidNotificationChannel channel = AndroidNotificationChannel(
-        'my_notification_channel', // Provide a unique ID for the channel
-        'My Notifications', // Provide a name for the channel
-        description:
-            'Notification Channel for MedMinder', // Provide a description for the channel
-        importance: Importance.high,
-        sound: RawResourceAndroidNotificationSound('tone'));
+      'my_notification_channel',
+      'My Notifications',
+      description: 'Notification Channel for MedMinder',
+      importance: Importance.high,
+    );
 
     await flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<
@@ -82,27 +87,27 @@ class _TimePickerState extends State<TimePicker> {
 
     final bool isAfter = selectedDateTime.isAfter(now);
     if (isAfter) {
-      final AndroidNotificationDetails androidPlatformChannelSpecifics =
+      const AndroidNotificationDetails androidPlatformChannelSpecifics =
           AndroidNotificationDetails(
-              'my_notification_channel', // Provide the same channel ID used when creating the channel
-              'My Notifications', // Provide the same channel name used when creating the channel
-              channelDescription:
-                  'Notification Channel for MedMinder', // Provide the same channel description used when creating the channel
-              importance: Importance.high,
-              sound: RawResourceAndroidNotificationSound('tone'));
+        'my_notification_channel',
+        'My Notifications',
+        channelDescription: 'Notification Channel for MedMinder',
+        importance: Importance.high,
+      );
 
       final NotificationDetails platformChannelSpecifics =
           NotificationDetails(android: androidPlatformChannelSpecifics);
 
       flutterLocalNotificationsPlugin.zonedSchedule(
         0,
-        'Please take your medicine',
-        'It is time to take your medicine. Do not forget!',
+        'It\'s time to take your medicines',
+        'Taking medicines on time could make you healthy, don\'t forget!',
         tz.TZDateTime.from(selectedDateTime, tz.local),
         platformChannelSpecifics,
         androidAllowWhileIdle: true,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
+        payload: 'alarm_payload',
       );
     } else {
       showDialog(
@@ -123,6 +128,11 @@ class _TimePickerState extends State<TimePicker> {
         },
       );
     }
+  }
+
+  void stopAlarm() {
+    // Handle stopping the alarm (e.g., stop sound)
+    print('Alarm stopped');
   }
 
   @override
@@ -167,8 +177,9 @@ class _TimePickerState extends State<TimePicker> {
               onPressed: () {
                 Navigator.pop(context); // Navigate back to the previous screen
               },
-              style:
-                  ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+              ),
               child: Text(
                 'Go back',
                 style: TextStyle(fontSize: 20),
